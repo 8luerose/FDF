@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rose <rose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 20:50:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/06/29 20:31:34 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/06/30 04:24:37 by rose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "./mlx2/mlx.h"
 
 int	create_argb(int a, int r, int g, int b)
 {
