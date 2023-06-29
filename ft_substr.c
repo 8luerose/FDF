@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 13:04:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/06/29 20:10:20 by taehkwon         ###   ########.fr       */
+/*   Created: 2023/03/21 17:07:36 by taehkwon          #+#    #+#             */
+/*   Updated: 2023/06/29 20:13:59 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	unsigned char	case1;
-	unsigned char	case2;
+	char	*result;
+	size_t	s_len;
+	size_t	result_len;
 
-	if (n == 0)
+	if (!s)
 		return (0);
-	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && (i < n))
-	{
-		case1 = (unsigned char)s1[i];
-		case2 = (unsigned char)s2[i];
-		if (case1 != case2)
-			return (case1 - case2);
-		i++;
-	}
-	return (0);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		return (ft_strdup(""));
+	result_len = s_len - start;
+	if (result_len > len)
+		result_len = len;
+	result = (char *)malloc((result_len + 1) * sizeof(char));
+	if (!result)
+		return (0);
+	ft_memcpy(result, s + start, result_len);
+	result[result_len] = '\0';
+	return (result);
 }

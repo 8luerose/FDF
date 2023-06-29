@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 13:04:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/06/29 20:10:20 by taehkwon         ###   ########.fr       */
+/*   Created: 2023/03/21 14:15:53 by taehkwon          #+#    #+#             */
+/*   Updated: 2023/06/29 20:13:38 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t			i;
-	unsigned char	case1;
-	unsigned char	case2;
+	size_t	i;
 
-	if (n == 0)
-		return (0);
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && (i < n))
+	while (s[i])
 	{
-		case1 = (unsigned char)s1[i];
-		case2 = (unsigned char)s2[i];
-		if (case1 != case2)
-			return (case1 - case2);
+		if (s[i] == (char)c)
+			return ((char *)s + i);
 		i++;
 	}
+	if ((char)c == '\0')
+		return ((char *)s + i);
 	return (0);
 }
