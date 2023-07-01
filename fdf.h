@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/01 20:09:53 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 03:59:21 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,17 @@
 
 # include <stdio.h>
 
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}	t_vars;
+
 typedef struct	s_coord
 {
 	int		color;
 	double	x;
 	double	y;
-	//double	z;
+	double	z;
 }	t_coord;
 
 typedef struct	s_map
@@ -43,6 +48,7 @@ typedef struct	s_map
 
 
 int		ft_atoi(const char *str);
+int		ft_tolower(int c);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
@@ -50,10 +56,19 @@ size_t	ft_strlen(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+
 int		is_valid_file(char *file);
 void	free_for_split(char	**str);
 void	ft_perror(char *s);
 int		get_width(char *line);
-int		color_check(char **arr, int	i);
+int		invalid_color_check(char **arr, int	i);
+int		is_valid_num(char *arr);
+int		is_color(char *arr);
+void	parsing(char *file_name, t_map *map);
+void	set_map_size(int fd, t_map *map, int i);
+void	set_map_coord(int fd, t_map *map, int x, int y);
+void	get_map_color(char *arr, t_coord *coord);
+int		input_color(char *arr, char *hex, int len);
+int		hex_indexing(char *hex, char x);
 
 #endif

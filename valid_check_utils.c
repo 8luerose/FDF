@@ -1,16 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_and_error.c                                   :+:      :+:    :+:   */
+/*   valid_check_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:33:22 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/01 02:40:27 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 01:33:57 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int	is_valid_file(char *file_name)
+{
+	int		result;
+	int		len;
+	int		**arr;
+
+	arr = ft_split(file_name, '.');
+	if (!file_name)
+		ft_perror("split error");
+	len = 0;
+	while (file_name[len] != 0)
+		len++;
+	if (len < 3)
+		return (0);
+	result = 0;
+	if (ft_strncmp(file_name[len - 1], "fdf", 4) == 0)
+		result = 1;
+	free_for_split(file_name);
+	return (result);
+}
 
 void	ft_perror(char *s)
 {
