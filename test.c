@@ -6,11 +6,11 @@
 /*   By: rose <rose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 20:50:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/06/30 04:24:37 by rose             ###   ########.fr       */
+/*   Updated: 2023/06/30 04:29:35 by rose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./mlx2/mlx.h"
+#include "fdf.h"
 
 int	create_argb(int a, int r, int g, int b)
 {

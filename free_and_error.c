@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_and_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/01 02:40:29 by taehkwon         ###   ########.fr       */
+/*   Created: 2023/07/01 02:33:22 by taehkwon          #+#    #+#             */
+/*   Updated: 2023/07/01 02:40:27 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int ac, char **av)
+void	ft_perror(char *s)
 {
-	t_map	map;
+	if (!s)
+		return ;
+	write (2, s, ft_strlen(s));
+	write (2, "\n", 1);
+	exit(1);
+}
 
-	if (ac != 2)
-		return (0);
-	if (!is_valid_file(av[1]))
-		ft_perror("ERROR: Invalid file name");
-	parsing(av[1], &map);
-	
+void	free_for_split(char	**str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
