@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 03:59:21 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 07:17:39 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,8 @@
 
 # include <stdio.h>
 
-typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
-}	t_vars;
+# define HEIGHT 1000
+# define WIDTH 1000
 
 typedef struct	s_coord
 {
@@ -45,6 +43,22 @@ typedef struct	s_map
 	int		height;
 	t_coord	*p_map;
 }	t_map;
+
+typedef struct	s_vars 
+{
+	void	*mlx;
+	void	*win;
+}	t_vars;
+
+typedef struct s_image
+{
+	void	*img;
+	char	*ptr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_image;
+
 
 
 int		ft_atoi(const char *str);
@@ -70,5 +84,9 @@ void	set_map_coord(int fd, t_map *map, int x, int y);
 void	get_map_color(char *arr, t_coord *coord);
 int		input_color(char *arr, char *hex, int len);
 int		hex_indexing(char *hex, char x);
+
+void	set_mlx(t_vars *vars, t_image *image);
+void	print_mlx(t_vars *vars, t_image *image);
+void	quit_window(int ket_code, t_vars *vars);
 
 #endif
