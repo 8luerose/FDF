@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:54:08 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 04:00:16 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 04:21:36 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,29 +92,18 @@ int	is_color(char *arr)
 	return (color_split_cnt);
 }
 
-int	input_color(char *arr, char *hex, int len)
+#include "fdf.h"
+
+int	hex_indexing(char *hex, char ch)
 {
 	int	i;
-	int	result;
 
-	if (!arr)
-		return (-1);
-	while (arr[len] && arr[len] != '\n')
-		len++;
-	if (len % 2 == 1 || len > 8)
-		return (-1);
 	i = 0;
-	if (ft_strncmp(arr, "0x", 2) == 0)
-		i += 2;
-	else
-		return (-1);
-	result = 0;
-	while (arr[i] && arr[i] != '\n')
+	while (hex[i])
 	{
-		if (hex_indexing(hex, arr[i]) == -1)
-			return (-1);
-		result = result * 10 + hex_indexing(hex, arr[i]);
+		if (hex[i] == ft_tolower(ch))
+			return (i);
 		i++;
 	}
-	return (result);
+	return (-1);
 }

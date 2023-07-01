@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 04:12:20 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 04:21:27 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,31 @@ void	get_map_color(char *arr, t_coord *coord)
 	}
 	else
 		coord->color = 0x00FFFFFF;
+}
+
+int	input_color(char *arr, char *hex, int len)
+{
+	int	i;
+	int	result;
+
+	if (!arr)
+		return (-1);
+	while (arr[len] && arr[len] != '\n')
+		len++;
+	if (len % 2 == 1 || len > 8)
+		return (-1);
+	i = 0;
+	if (ft_strncmp(arr, "0x", 2) == 0)
+		i += 2;
+	else
+		return (-1);
+	result = 0;
+	while (arr[i] && arr[i] != '\n')
+	{
+		if (hex_indexing(hex, arr[i]) == -1)
+			return (-1);
+		result = result * 10 + hex_indexing(hex, arr[i]);
+		i++;
+	}
+	return (result);
 }
