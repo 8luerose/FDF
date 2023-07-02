@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 05:52:18 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 15:28:39 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int	input_color(char *arr, char *hex, int len)
 	{
 		if (hex_indexing(hex, arr[i]) == -1)
 			return (-1);
-		result = result * 10 + hex_indexing(hex, arr[i]);
+		result = result * 16 + hex_indexing(hex, arr[i]);
 		i++;
 	}
 	return (result);
