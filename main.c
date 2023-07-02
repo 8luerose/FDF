@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 20:14:32 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:41:21 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,13 @@ int	main(int ac, char **av)
 	{
 		if (!is_valid_file(av[1]))
 			ft_perror("ERROR: Invalid file name");
+		printf("**\n");
 		parsing(av[1], &map);
+		printf("***\n");
 		isometric(&map);
+		printf("***\n");
 		set_mlx(&vars, &image);
+		printf("****\n");
 		//draw
 
 		for (int i =0 ; i< 200  ; i++)

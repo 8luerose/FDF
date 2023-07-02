@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:33:22 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 20:25:45 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:39:05 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	is_valid_file(char *file_name)
 	len = 0;
 	while (arr[len] != 0)
 		len++;
-	if (len < 3)
+	if (len < 2)
 		return (0);
 	result = 0;
 	if (ft_strncmp(arr[len - 1], "fdf", 4) == 0)
