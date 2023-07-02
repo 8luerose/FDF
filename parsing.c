@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 15:28:39 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:21:19 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	parsing(char *file_name, t_map *map)
 {
 	int	fd;
 	int	map_size_value;
-	
+
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
 		exit(1);
@@ -44,7 +44,7 @@ void	set_map_size(int fd, t_map *map, int i)
 	{
 		arr = ft_split(line, ' ');
 		free(line);
-		if (arr == NULL || *arr == '\0')
+		if (arr == NULL || *arr[0] == '\0')
 			ft_perror("ERROR: Invalid map");
 		check_width = invalid_color_check(arr, i); //i = 0;
 		if (!check_width)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setting_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 06:58:13 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 07:17:24 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:26:17 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	set_mlx(t_vars *vars, t_image *image)
 		ft_perror("ERROR: Invalid mlx init");
 	vars->win = mlx_new_window(vars->mlx, WIDTH, HEIGHT, "FDF");
 	image->img = mlx_new_image(vars->mlx, WIDTH, HEIGHT);
-	image->ptr = mlx_get_data_addr(image->img, image->bits_per_pixel,image->line_length, image->endian);
+	image->ptr = mlx_get_data_addr(image->img, &image->bits_per_pixel, &image->line_length, &image->endian);
 }
 
 void	print_mlx(t_vars *vars, t_image *image)
 {
 	mlx_put_image_to_window(vars->mlx, vars->win, image->img, 0, 0);
-	mlx_hook(vars->win, 02, 1L<<0, quit_window, vars);
+	mlx_hook(vars->win, 02, 1L << 0, quit_window, vars);
 	mlx_loop(vars->mlx);
 }
 
-void	quit_window(int ket_code, t_vars *vars)
+int	quit_window(int ket_code, t_vars *vars)
 {
 	if (ket_code == 53)
 	{
