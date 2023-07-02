@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:56:39 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/04/29 20:53:44 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:33:12 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,16 @@ char	*make_line(int fd, char *backup, char *buffer)
 			return (gnl_free(&backup));
 		buffer[len] = '\0';
 		if (backup == NULL)
-			backup = ft_strdup("");
+			backup = gnl_strdup("");
 		if (!backup)
 			return (NULL);
 		temp = backup;
-		backup = ft_strjoin(temp, buffer);
+		backup = gnl_strjoin(temp, buffer);
 		free(temp);
 		temp = NULL;
 		if (backup == NULL)
 			return (NULL);
-		if (ft_strchr(backup, '\n'))
+		if (gnl_strchr(backup, '\n'))
 			break ;
 	}
 	return (backup);
@@ -78,7 +78,7 @@ char	*save_backup(char **line)
 		i++;
 	if ((*line)[i] == '\0' || (*line)[i + 1] == '\0')
 		return (NULL);
-	backup = ft_strdup((*line) + i + 1);
+	backup = gnl_strdup((*line) + i + 1);
 	if (backup == NULL)
 		return (gnl_free(line));
 	(*line)[i + 1] = '\0';
@@ -94,9 +94,9 @@ char	*cut_line(char **line)
 	while ((*line)[i] != '\0' && (*line)[i] != '\n')
 		i++;
 	if ((*line)[i] == '\0')
-		result_line = ft_strdup(*line);
+		result_line = gnl_strdup(*line);
 	else
-		result_line = ft_substr(*line, 0, i + 1);
+		result_line = gnl_substr(*line, 0, i + 1);
 	if (result_line == NULL)
 		return (gnl_free(line));
 	return (result_line);

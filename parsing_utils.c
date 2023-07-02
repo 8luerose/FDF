@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils1.c                                   :+:      :+:    :+:   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:54:08 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 04:21:36 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 21:05:15 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,29 @@ int	is_valid_num(char *arr)
 {
 	int	i;
 
+	i = 0;
+	printf("test2: %s\n", arr);
+	printf("len: %d\n", ft_strlen(arr));
 	if (arr[i] == '-' || arr[i] == '+')
 		i++;
 	if (arr == NULL || arr[i] == '\0' || arr[i] == '\n')
 		return (0);
-	while (arr[i] != '\0' || arr[i] != '\n')
+
+	printf("test2: %d %c\n", i, arr[i]);
+	
+	printf("#-\n");
+	while (arr[i] != '\0' && arr[i] != '\n')
 	{
-		if (!(arr[i] >= 0 && arr[i] <= 9))
+		printf("%d\n",arr[i]);
+		if (!(arr[i] >= '0' && arr[i] <= '9'))
+		{
+			// printf("if: %d\n", arr[i]);
 			return (0);
+		}
 		i++;
 	}
+
+	printf("end test\n");
 	return (1);
 }
 
@@ -91,8 +104,6 @@ int	is_color(char *arr)
 	free_for_split(color_split);
 	return (color_split_cnt);
 }
-
-#include "fdf.h"
 
 int	hex_indexing(char *hex, char ch)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 07:17:39 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:28:05 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <fcntl.h>
 # include <math.h>
 
-// # include "mlx.h"
-# include "./mlx2/mlx.h"
+# include "./mlx/mlx.h"
+// # include "./mlx2/mlx.h"
 
 # include "./get_next_line/get_next_line.h"
 
@@ -29,7 +29,7 @@
 # define HEIGHT 1000
 # define WIDTH 1000
 
-typedef struct	s_coord
+typedef struct s_coord
 {
 	int		color;
 	double	x;
@@ -37,14 +37,14 @@ typedef struct	s_coord
 	double	z;
 }	t_coord;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	int		width;
 	int		height;
 	t_coord	*p_map;
 }	t_map;
 
-typedef struct	s_vars 
+typedef struct s_vars
 {
 	void	*mlx;
 	void	*win;
@@ -85,8 +85,13 @@ void	get_map_color(char *arr, t_coord *coord);
 int		input_color(char *arr, char *hex, int len);
 int		hex_indexing(char *hex, char x);
 
+void	isometric(t_map *map);
+void	rotate_x(double *x, double *y, double *z);
+void	rotate_y(double *x, double *y, double *z);
+void	rotate_z(double *x, double *y, double *z);
+
 void	set_mlx(t_vars *vars, t_image *image);
 void	print_mlx(t_vars *vars, t_image *image);
-void	quit_window(int ket_code, t_vars *vars);
+int		quit_window(int ket_code, t_vars *vars);
 
 #endif
