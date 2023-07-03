@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/03 20:57:37 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/03 20:58:12 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	parsing(char *file_name, t_map *map)
 	fd = open(file_name, O_RDONLY);
 	set_map_coord(fd, map, 0, 0);
 
-	printf("\n");
+	//printf("\n");
 
 	//z 파싱 결과
 	// for (int i = 0; i < map->height; i++)
@@ -74,12 +74,16 @@ void	parsing(char *file_name, t_map *map)
 	// 	printf("\n");
 	// }
 	
-	int i = 0;
-	while (i < map->width * map->height)
-	{
-		printf("(%f,%f,%f)  ",map->p_map[i].x, map->p_map[i].y, map->p_map[i].z);
-		i++;
-	}
+
+
+
+	
+	// int i = 0;
+	// while (i < map->width * map->height)
+	// {
+	// 	printf("(%f,%f,%f)  ",map->p_map[i].x, map->p_map[i].y, map->p_map[i].z);
+	// 	i++;
+	// }
 
 	close(fd);
 }
@@ -140,7 +144,7 @@ void	set_map_coord(int fd, t_map *map, int x, int y)
 			// printf("%f %f\n", coord.x, map->p_map[y * map->width + i].x);
 			i++;
 		}
-		printf("%f %f\n", coord.x, map->p_map[y * map->width + i -1].x);
+		//printf("%f %f\n", coord.x, map->p_map[y * map->width + i -1].x);
 
 		free_for_split(arr);
 		free(line);
