@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/03 19:52:24 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/03 20:57:37 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ void	parsing(char *file_name, t_map *map)
 	// 	printf("\n");
 	// }
 	
-	// int i = 0;
-	// while (i < map->width * map->height)
-	// {
-	// 	printf("(%d,%d,%d)  ",map->p_map[i].x, map->p_map[i].y, map->p_map[i].z);
-	// 	i++;
-	// }
+	int i = 0;
+	while (i < map->width * map->height)
+	{
+		printf("(%f,%f,%f)  ",map->p_map[i].x, map->p_map[i].y, map->p_map[i].z);
+		i++;
+	}
 
 	close(fd);
 }
@@ -136,9 +136,12 @@ void	set_map_coord(int fd, t_map *map, int x, int y)
 		{		
 			get_map_color(arr[i], &coord);
 			coord.x = i;
-			map->p_map[y * map->width + x] = coord;
+			map->p_map[y * map->width + i] = coord;
+			// printf("%f %f\n", coord.x, map->p_map[y * map->width + i].x);
 			i++;
 		}
+		printf("%f %f\n", coord.x, map->p_map[y * map->width + i -1].x);
+
 		free_for_split(arr);
 		free(line);
 		line = get_next_line(fd);
@@ -189,7 +192,8 @@ void	get_map_color(char *arr, t_coord *coord)
 	// 	coord->color = 0x00FFFFFF;
 
 	//printf("color: %d\n", coord->color);
-	printf("white: %d \n", input_color("0x00FFFFFF", "0123456789abcdef", 0));
+	
+	// printf("white: %d \n", input_color("0x00FFFFFF", "0123456789abcdef", 0));
 }
 
 int	input_color(char *arr, char *hex, int len)
@@ -198,34 +202,21 @@ int	input_color(char *arr, char *hex, int len)
 	int	result;
 
 	if (!arr)
-	{
-		printf("*1\n");
 		return (-1);
-	}	
 	while (arr[len] && arr[len] != '\n')
 		len++;
-	printf("len: %d \n", len);
 	if (len % 2 == 1 || len > 10)
-	{
-		printf("*2\n");
 		return (-1);
-	}	
 	i = 0;
 	if (ft_strncmp(arr, "0x", 2) == 0)
 		i += 2;
 	else
-	{
-		printf("*3\n");
 		return (-1);
-	}	
 	result = 0;
 	while (arr[i] && arr[i] != '\n')
 	{
 		if (hex_indexing(hex, arr[i]) == -1)
-		{
-			printf("ERROR: %c \n", arr[i]);
 			return (-1);
-		}
 		result = result * 16 + hex_indexing(hex, arr[i]);
 		i++;
 	}
