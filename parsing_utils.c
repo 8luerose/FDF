@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:54:08 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/03 14:40:41 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/03 19:46:17 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,9 @@ int	hex_indexing(char *hex, char ch)
 	while (hex[i])
 	{
 		if (hex[i] == ft_tolower(ch))
+		{
 			return (i);
+		}
 		i++;
 	}
 	return (-1);

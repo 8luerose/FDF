@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/03 16:35:20 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/03 19:52:24 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,56 @@ void	parsing(char *file_name, t_map *map)
 	if (!(map->p_map))
 		ft_perror("ERROR: Invalid map malloc");
 	fd = open(file_name, O_RDONLY);
-
-	printf("\ntest\n");
-
 	set_map_coord(fd, map, 0, 0);
 
-	//파싱 내용 출력
-	// for (int i = 0; i < HEIGHT; i++)
+	printf("\n");
+
+	//z 파싱 결과
+	// for (int i = 0; i < map->height; i++)
 	// {
-	// 	for (int j = 0; j < WIDTH; j++)
+	// 	for (int j = 0; j < map->width; j++)
 	// 	{
-	// 		if (map->p_map[i * WIDTH + j].z == 10)
-	// 			printf("(%0.1f) ", map->p_map[i * WIDTH + j].z);
+	// 		t_coord p;
+	// 		p = map->p_map[i * map->width];
+	// 		// if(p.x)
+	// 		// 	printf("x= %0.1f y= %0.1f z= %0.1f", p.x, p.y, p.z);
+	// 		if(p.x)
+	// 			printf("z= %f", p.z);
+	// 	}
+	// 	printf("\n");
+	// }
+
+	// for (int i = 0; i < map->height; i++)
+	// {
+	// 	for (int j = 0; j < map->width; j++)
+	// 	{
+	// 		t_coord p;
+	// 		p = map->p_map[i * map->width];
+	// 		// if(p.x)
+	// 		// 	printf("x= %0.1f y= %0.1f z= %0.1f", p.x, p.y, p.z);
+	// 		if(p.x)
+	// 			printf("z= %d c= %d  ||", p.z, p.color);
+	// 	}
+	// 	printf("\n");
+	// }
+
+	// for (int i = 0; i < map->height; i++)
+	// {
+	// 	for (int j = 0; j < map->width; j++)
+	// 	{
+	// 		// map->p_map[i * map->width + j];
+	// 		printf("(%d,%d,%d)  ", map->p_map[i * map->width + j].x, map->p_map[i * map->width + j].y, map->p_map[i * map->width + j].z);
 	// 	}
 	// 	printf("\n");
 	// }
 	
+	// int i = 0;
+	// while (i < map->width * map->height)
+	// {
+	// 	printf("(%d,%d,%d)  ",map->p_map[i].x, map->p_map[i].y, map->p_map[i].z);
+	// 	i++;
+	// }
+
 	close(fd);
 }
 
@@ -88,58 +122,14 @@ void	set_map_coord(int fd, t_map *map, int x, int y)
 	while (line)
 	{
 		coord.y = y;
-
-		//printf("coord.y = %f", coord.y);
-		
 		arr = ft_split(line, ' ');
 
-		// if (arr[y] != NULL && arr[y][0] != '\0')
-		// 	printf("y= %d (%c) ", y, arr[y][0]);
-
-		// printf("y= %d (%c) ", y, arr[10][0]);
-
-
-		for (int i = 0; i < map->width; i++)
-		{
-			printf("%c ", arr[i][0]);
-			// if (arr[i] == 10)
-			// 	printf("(%c) ", arr[i]);
-			// int arr_length = 0;
-    		// while (arr[arr_length] != NULL)
-        	// 	arr_length++;
-			// if (i >= arr_length )
-			// {
-			// 	printf("y= %d i= %d arr_length= %d", y, i, arr_length);
-			// 	break;
-			// }
-				
-			// if (i < arr_length && arr[i] != NULL && arr[i][0] != '\0')
-			// 	printf("(%c) ", arr[i][0]);
-		}
-		printf("\n");
-
-		
-		// if (y < 14 && arr && arr != NULL && arr[0][0] != '\0')
+		//map 파싱한 결과.
+		// for (int i = 0; i < map->width; i++)
 		// {
-		// 	for (int i = 0; i < map->width; i++)
-		// 	{
-		// 		// if (arr[i] == 10)
-		// 		// 	printf("(%c) ", arr[i]);
-		// 		int arr_length = 0;
-    	// 		while (arr[arr_length] != NULL)
-        // 			arr_length++;
-		// 		if (i >= arr_length )
-		// 		{
-		// 			printf("y= %d i= %d arr_length= %d", y, i, arr_length);
-		// 			break;
-		// 		}
-					
-		// 		// if (i < arr_length && arr[i] != NULL && arr[i][0] != '\0')
-		// 		// 	printf("(%c) ", arr[i][0]);
-		// 	}
+		// 	printf("%s ", arr[i]);
 		// }
 		// printf("\n");
-
 
 		i = 0;
 		while (arr[i])
@@ -170,6 +160,12 @@ void	get_map_color(char *arr, t_coord *coord)
 		ft_perror("ERROR: Invalid map number");
 	}	
 	coord->z = ft_atoi(color_split[0]);
+
+
+	//컬러값 출력
+	// printf("color: %s  z= %f\n", color_split[1], coord->z);
+	// printf("\n");
+
 	check_width = is_color(arr);
 	if (check_width == 2)
 	{
@@ -179,7 +175,21 @@ void	get_map_color(char *arr, t_coord *coord)
 		coord->color = color_value;
 	}
 	else
-		coord->color = 0x00FFFFFF;
+		coord->color = input_color("0x00FFFFFF", "0123456789abcdef", 0);
+
+	// check_width = is_color(arr);
+	// if (check_width == 2)
+	// {
+	// 	color_value = input_color(color_split[1], "0123456789abcdef", 0);
+	// 	if (color_value == -1)
+	// 		ft_perror("ERROR: Invalid color");
+	// 	coord->color = color_value;
+	// }
+	// else
+	// 	coord->color = 0x00FFFFFF;
+
+	//printf("color: %d\n", coord->color);
+	printf("white: %d \n", input_color("0x00FFFFFF", "0123456789abcdef", 0));
 }
 
 int	input_color(char *arr, char *hex, int len)
@@ -188,21 +198,34 @@ int	input_color(char *arr, char *hex, int len)
 	int	result;
 
 	if (!arr)
+	{
+		printf("*1\n");
 		return (-1);
+	}	
 	while (arr[len] && arr[len] != '\n')
 		len++;
-	if (len % 2 == 1 || len > 8)
+	printf("len: %d \n", len);
+	if (len % 2 == 1 || len > 10)
+	{
+		printf("*2\n");
 		return (-1);
+	}	
 	i = 0;
 	if (ft_strncmp(arr, "0x", 2) == 0)
 		i += 2;
 	else
+	{
+		printf("*3\n");
 		return (-1);
+	}	
 	result = 0;
 	while (arr[i] && arr[i] != '\n')
 	{
 		if (hex_indexing(hex, arr[i]) == -1)
+		{
+			printf("ERROR: %c \n", arr[i]);
 			return (-1);
+		}
 		result = result * 16 + hex_indexing(hex, arr[i]);
 		i++;
 	}
