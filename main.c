@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 20:41:21 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/03 15:31:45 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,25 @@ int	main(int ac, char **av)
 	{
 		if (!is_valid_file(av[1]))
 			ft_perror("ERROR: Invalid file name");
-		printf("**\n");
 		parsing(av[1], &map);
-		printf("***\n");
-		isometric(&map);
-		printf("***\n");
-		set_mlx(&vars, &image);
-		printf("****\n");
-		//draw
+		
+		// isometric(&map);
+		// set_mlx(&vars, &image);;
+		// //draw
 
-		for (int i =0 ; i< 200  ; i++)
-		{
-			for(int k = 0; k<200; k++)
-			{
-				char *dst2;
-				// 8 = sizeof(char)
-				dst2 = image.ptr + (k * size_line1 + i * bit_per_pixel1 / 8 );
-				*(unsigned int*)dst2 = map.p_map[k + i].color;
-			}
-		}
+		// for (int i =0 ; i< 200  ; i++)
+		// {
+		// 	for(int k = 0; k<200; k++)
+		// 	{
+		// 		char *dst2;
+		// 		// 8 = sizeof(char)
+		// 		dst2 = image.ptr + (k * size_line1 + i * bit_per_pixel1 / 8 );
+		// 		*(unsigned int*)dst2 = map.p_map[k + i].color;
+		// 	}
+		// }
 
-		print_mlx(&vars, &image);
+		// print_mlx(&vars, &image);
+
 	}
 	return (0);
 }

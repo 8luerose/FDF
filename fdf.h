@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 20:28:05 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/03 14:35:27 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		is_valid_file(char *file);
 void	free_for_split(char	**str);
 void	ft_perror(char *s);
 int		get_width(char *line);
-int		invalid_color_check(char **arr, int	i);
+int		invalid_color_check(char **arr, int i);
 int		is_valid_num(char *arr);
 int		is_color(char *arr);
 void	parsing(char *file_name, t_map *map);

@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/02 21:02:51 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/03 16:35:20 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,32 @@ void	parsing(char *file_name, t_map *map)
 	if (fd < 0)
 		exit(1);
 	set_map_size(fd, map, 0);
-	close(fd);
 
-	printf("#\n");
+	//파싱한 width, height 크기
+	printf("width: %d  height: %d\n",map->width, map->height);
 
+	close(fd);	
 	map_size_value = (map->height) * (map->width);
 	map->p_map = (t_coord *)malloc(sizeof(t_coord) * map_size_value);
 	if (!(map->p_map))
 		ft_perror("ERROR: Invalid map malloc");
 	fd = open(file_name, O_RDONLY);
 
-	printf("##\n");
-	
+	printf("\ntest\n");
+
 	set_map_coord(fd, map, 0, 0);
 
-	printf("###\n");
+	//파싱 내용 출력
+	// for (int i = 0; i < HEIGHT; i++)
+	// {
+	// 	for (int j = 0; j < WIDTH; j++)
+	// 	{
+	// 		if (map->p_map[i * WIDTH + j].z == 10)
+	// 			printf("(%0.1f) ", map->p_map[i * WIDTH + j].z);
+	// 	}
+	// 	printf("\n");
+	// }
+	
 	close(fd);
 }
 
@@ -76,28 +87,68 @@ void	set_map_coord(int fd, t_map *map, int x, int y)
 	line = get_next_line(fd);
 	while (line)
 	{
-		printf("--\n");
-
 		coord.y = y;
+
+		//printf("coord.y = %f", coord.y);
+		
 		arr = ft_split(line, ' ');
+
+		// if (arr[y] != NULL && arr[y][0] != '\0')
+		// 	printf("y= %d (%c) ", y, arr[y][0]);
+
+		// printf("y= %d (%c) ", y, arr[10][0]);
+
+
+		for (int i = 0; i < map->width; i++)
+		{
+			printf("%c ", arr[i][0]);
+			// if (arr[i] == 10)
+			// 	printf("(%c) ", arr[i]);
+			// int arr_length = 0;
+    		// while (arr[arr_length] != NULL)
+        	// 	arr_length++;
+			// if (i >= arr_length )
+			// {
+			// 	printf("y= %d i= %d arr_length= %d", y, i, arr_length);
+			// 	break;
+			// }
+				
+			// if (i < arr_length && arr[i] != NULL && arr[i][0] != '\0')
+			// 	printf("(%c) ", arr[i][0]);
+		}
+		printf("\n");
+
+		
+		// if (y < 14 && arr && arr != NULL && arr[0][0] != '\0')
+		// {
+		// 	for (int i = 0; i < map->width; i++)
+		// 	{
+		// 		// if (arr[i] == 10)
+		// 		// 	printf("(%c) ", arr[i]);
+		// 		int arr_length = 0;
+    	// 		while (arr[arr_length] != NULL)
+        // 			arr_length++;
+		// 		if (i >= arr_length )
+		// 		{
+		// 			printf("y= %d i= %d arr_length= %d", y, i, arr_length);
+		// 			break;
+		// 		}
+					
+		// 		// if (i < arr_length && arr[i] != NULL && arr[i][0] != '\0')
+		// 		// 	printf("(%c) ", arr[i][0]);
+		// 	}
+		// }
+		// printf("\n");
+
+
 		i = 0;
 		while (arr[i])
-		{
-			printf("---\n");
-
+		{		
 			get_map_color(arr[i], &coord);
 			coord.x = i;
 			map->p_map[y * map->width + x] = coord;
-
-			printf("-@@-\n");
-
 			i++;
-
-			printf("----\n");
 		}
-
-		printf("-----\n");
-
 		free_for_split(arr);
 		free(line);
 		line = get_next_line(fd);
@@ -111,38 +162,21 @@ void	get_map_color(char *arr, t_coord *coord)
 	char	**color_split;
 	int		check_width;
 	int		color_value;
-
-	printf("print arr_: %s", arr);
 	
 	color_split = ft_split(arr, ',');
-
-	printf("@-\n");
-
 	if (!color_split || !is_valid_num(color_split[0]))
 	{
 		free_for_split(color_split);
 		ft_perror("ERROR: Invalid map number");
-	}
-
-	printf("-----test: %s\n", color_split[0]);
-	
+	}	
 	coord->z = ft_atoi(color_split[0]);
-
-	printf("@--\n");
-
-	printf("@\n");
-
 	check_width = is_color(arr);
-
-	printf("@@\n");
-
 	if (check_width == 2)
 	{
 		color_value = input_color(color_split[1], "0123456789abcdef", 0);
 		if (color_value == -1)
 			ft_perror("ERROR: Invalid color");
 		coord->color = color_value;
-		printf("@@@\n");
 	}
 	else
 		coord->color = 0x00FFFFFF;
