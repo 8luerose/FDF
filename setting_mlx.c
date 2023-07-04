@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 06:58:13 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/04 18:35:37 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/04 19:54:08 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	set_mlx(t_vars *vars, t_image *image)
 
 void	print_mlx(t_vars *vars, t_image *image)
 {
-	mlx_put_image_to_window(vars->mlx, vars->win, image->img, 0, 0);
+	mlx_put_image_to_window(vars->mlx, vars->win, image->img, 150, 150);
 	mlx_hook(vars->win, 02, 1L << 0, quit_window, vars);
 	mlx_loop(vars->mlx);
 }
@@ -41,30 +41,28 @@ int	quit_window(int ket_code, t_vars *vars)
 
 void	draw_img(t_image *image, t_map *map)
 {
-	int	x;
-	int	y;
-	int	i;
-	int	j;
-	int	size;
+	double	x;
+	double	y;
+	int		color;
+	int		i;
+	int		size;
 
-	i = 0;
-	j = 0;
 	size = map->width * map->height;
-
-	x = 0;
-	y = 0;
+	i = 0;
 	while (i < size)
 	{
-		
-		map->p_map[i]
+		x = map->p_map[i].x;
+		y = map->p_map[i].y;
+		color = map->p_map[i].color;
+		pixel_input_color(image, x, y, color);
 		i++;
 	}
 }
 
-// void	pixel_input_color(t_image *data, int x, int y, int color)
-// {
-// 	char	*dst;
+void	pixel_input_color(t_image *image, int x, int y, int color)
+{
+	char	*dst;
 
-// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-// 	*(unsigned int *)dst = color;
-// }
+	dst = image->ptr + (y * image->line_length + x * (image->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
+}

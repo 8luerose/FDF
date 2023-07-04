@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/04 18:35:38 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/04 21:22:44 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ int	main(int ac, char **av)
 			ft_perror("ERROR: Invalid file name");
 		parsing(av[1], &map);
 		
-		isometric(&map);
 
+		//isometric(&map);
+
+		image_size_up(&map);
 		//등각투영법 이후 x,y,z 출력
 		int i = 0;
 		while (i < map.width * map.height)
@@ -36,6 +38,7 @@ int	main(int ac, char **av)
 			i++;
 		}
 	
+
 		set_mlx(&vars, &image);
 
 		draw_img(&image, &map);

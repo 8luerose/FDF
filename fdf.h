@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/04 18:14:54 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/04 21:21:39 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	get_map_color(char *arr, t_coord *coord);
 int		input_color(char *arr, char *hex, int len);
 int		hex_indexing(char *hex, char x);
 
+void	image_size_up(t_map *map);
+
 void	isometric(t_map *map);
 void	rotate_x(double *x, double *y, double *z);
 void	rotate_y(double *x, double *y, double *z);
@@ -93,6 +95,7 @@ void	rotate_z(double *x, double *y, double *z);
 void	set_mlx(t_vars *vars, t_image *image);
 
 void	draw_img(t_image *image, t_map *map);
+void	pixel_input_color(t_image *image, int x, int y, int color);
 
 void	print_mlx(t_vars *vars, t_image *image);
 int		quit_window(int ket_code, t_vars *vars);
