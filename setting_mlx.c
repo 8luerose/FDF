@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 06:58:13 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/03 14:35:11 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/04 18:35:37 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,33 @@ int	quit_window(int ket_code, t_vars *vars)
 	}
 	return (0);
 }
+
+void	draw_img(t_image *image, t_map *map)
+{
+	int	x;
+	int	y;
+	int	i;
+	int	j;
+	int	size;
+
+	i = 0;
+	j = 0;
+	size = map->width * map->height;
+
+	x = 0;
+	y = 0;
+	while (i < size)
+	{
+		
+		map->p_map[i]
+		i++;
+	}
+}
+
+// void	pixel_input_color(t_image *data, int x, int y, int color)
+// {
+// 	char	*dst;
+
+// 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+// 	*(unsigned int *)dst = color;
+// }

@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/03 21:00:59 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/04 18:35:38 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@ int	main(int ac, char **av)
 		int i = 0;
 		while (i < map.width * map.height)
 		{
-			printf("(%f,%f,%f)  ",map.p_map[i].x, map.p_map[i].y, map.p_map[i].z);
+			printf("(%f,%f,%f), %d|| ",map.p_map[i].x, map.p_map[i].y, map.p_map[i].z, map.p_map[i].color);
 			i++;
 		}
+	
+		set_mlx(&vars, &image);
 
-		//set_mlx(&vars, &image);;
+		draw_img(&image, &map);
 		// //draw
 
 		// for (int i =0 ; i< 200  ; i++)
@@ -61,7 +63,7 @@ int	main(int ac, char **av)
 		// 	}
 		// }
 
-		// print_mlx(&vars, &image);
+		print_mlx(&vars, &image);
 
 	}
 	return (0);
