@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/04 21:22:44 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/05 01:50:28 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 		//isometric(&map);
 
 		image_size_up(&map);
+		
 		//등각투영법 이후 x,y,z 출력
 		int i = 0;
 		while (i < map.width * map.height)
