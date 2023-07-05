@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 06:58:13 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/05 20:39:24 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/05 21:05:36 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	set_mlx(t_vars *vars, t_image *image)
 
 void	print_mlx(t_vars *vars, t_image *image)
 {
-	mlx_put_image_to_window(vars->mlx, vars->win, image->img, 150, 150);
+	mlx_put_image_to_window(vars->mlx, vars->win, image->img, 0, 0);
 	mlx_hook(vars->win, 02, 1L << 0, quit_window, vars);
 	mlx_loop(vars->mlx);
 }
@@ -48,6 +48,8 @@ void	draw_img(t_image *image, t_map *map)
 	int		i;
 	int		size;
 
+	//printf("*****\n");
+
 	size = map->width * map->height;
 	i = 0;
 	while (i < size)
@@ -55,7 +57,8 @@ void	draw_img(t_image *image, t_map *map)
 		x = map->p_map[i].x;
 		y = map->p_map[i].y;
 		color = map->p_map[i].color;
-		pixel_input_color(image, x, y, color);
+		if(!((x + TEST < 0 && y + TEST < 0) || (x + TEST > WIDTH && y + TEST > HEIGHT)))
+			pixel_input_color(image, x + TEST, y + TEST, color);
 		i++;
 	}
 }
