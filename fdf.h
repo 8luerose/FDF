@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/04 21:21:39 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/05 18:29:48 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,9 @@ void	rotate_z(double *x, double *y, double *z);
 void	set_mlx(t_vars *vars, t_image *image);
 
 void	draw_img(t_image *image, t_map *map);
+void	draw_col(t_image *img, t_map *map);
+void	draw_row(t_image *img, t_map *map);
+void	DDA(x1, y1, t_coord , y2);
 void	pixel_input_color(t_image *image, int x, int y, int color);
 
 void	print_mlx(t_vars *vars, t_image *image);
