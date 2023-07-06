@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/05 21:03:15 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/06 20:20:58 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int ac, char **av)
 
 		isometric(&map);
 
-		//image_size_up(&map);
 		
 		//등각투영법 이후 x,y,z 출력
 		int i = 0;
@@ -42,6 +41,8 @@ int	main(int ac, char **av)
 
 		set_mlx(&vars, &image);
 
+		image_size_up(&vars, &map);
+		
 		draw_img(&image, &map);
 		// //draw
 

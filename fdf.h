@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/05 21:05:21 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/06 20:57:21 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 # define HEIGHT 5000
 # define WIDTH 5000
-# define TEST 500
+# define TEST 1000
 
 typedef struct s_coord
 {
@@ -86,7 +86,6 @@ void	get_map_color(char *arr, t_coord *coord);
 int		input_color(char *arr, char *hex, int len);
 int		hex_indexing(char *hex, char x);
 
-void	image_size_up(t_map *map);
 
 void	isometric(t_map *map);
 void	rotate_x(double *x, double *y, double *z);
@@ -95,7 +94,12 @@ void	rotate_z(double *x, double *y, double *z);
 
 void	set_mlx(t_vars *vars, t_image *image);
 
+void	image_size_up(t_vars *vars, t_map *map);
+int		max_gap(t_vars *var, t_map *map);
+
+
 void	draw_img(t_image *image, t_map *map);
+
 void	draw_col(t_image *img, t_map *map);
 void	draw_row(t_image *img, t_map *map);
 // void	DDA(x1, y1, t_coord , y2);

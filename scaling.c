@@ -6,16 +6,20 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/05 20:53:15 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/06 20:57:08 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	image_size_up(t_map *map)
+void	image_size_up(t_vars *vars, t_map *map)
 {
 	int		x;
 	int		y;
+	int		gap;
+
+	gap = max_gap(vars, map);
+	printf("\n\n\n gap: %d \n", gap);
 
 	y = 0;
 	while (y < map->height)
@@ -23,14 +27,57 @@ void	image_size_up(t_map *map)
 		x = 0;
 		while (x < map->width)
 		{
-			map->p_map[y * map->width + x].x *=	30;
-			map->p_map[y * map->width + x].y *= 30;
-			map->p_map[x + map->width * y].z *= 30;
+			// map->p_map[y * map->width + x].x *=	30;
+			// map->p_map[y * map->width + x].y *= 30;
+			// map->p_map[x + map->width * y].z *= 30;
+			map->p_map[y * map->width + x].x *=	gap;
+			map->p_map[y * map->width + x].y *= gap;
+			map->p_map[x + map->width * y].z *= gap;
 			x++;
 		}
 		y++;
 	}
 }
+
+int	max_gap(t_vars *var, t_map *map)
+{
+	int	gap;
+	int	max;
+	int	i;
+
+	
+	i = 20;
+	max = 0;
+	gap = 50;
+	// while (gap < map->width * map->height)
+	printf("map->width: %d    map->height: %d\n\n", map->width, map->height);
+	// while (gap > i)
+	// {
+	// 	if ((map->width * gap > WIDTH) && (map->height * gap > HEIGHT))
+	// 	{
+	// 		max = gap;
+	// 		//printf("max: %d_%d\n", max, gap);
+	// 	}
+	// 	if (gap == 20)
+	// 		break;
+	// 	gap--;
+	// }
+	// return (max);
+
+	while ((map->width * gap > WIDTH) || (map->height * gap > HEIGHT))
+	{
+		gap--;
+		if (gap == 30)
+			break;
+	}
+	return (gap);
+}
+
+// (점의 가로 개수(파싱한 파일 열의 개수)) * gap > Window_Max_X
+
+// ||
+
+// (점의 세로 개수(파싱한 파일 행의 개수)) * gap > Window_Max_Y
 
 // while (y < var->map_height)
 // {
