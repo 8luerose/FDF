@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:54:08 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/03 19:46:17 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/07 20:21:10 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	get_width(char *line)
 
 	len_width = 0;
 	arr = ft_split(line, ' ');
-	while (arr[len_width])
+	//printf("arr: %s\n", arr[i]);
+	while (arr[len_width] && arr[len_width + 1] != NULL)
 		len_width++;
 	free_for_split(arr);
 	return (len_width);
@@ -54,18 +55,22 @@ int	invalid_color_check(char **arr, int	i)
 
 int	is_valid_num(char *arr)
 {
+	printf("is_valid_num %s\n", arr);
 	int	i;
 
 	i = 0;
 	if (arr[i] == '-' || arr[i] == '+')
 		i++;
 	if (arr == NULL || arr[i] == '\0' || arr[i] == '\n')
+	{
+		printf("arr[i]: %c\n", arr[i]);
 		return (0);
+	}
 	while (arr[i] != '\0' && arr[i] != '\n')
 	{
 		if (!(arr[i] >= '0' && arr[i] <= '9'))
 		{
-			// printf("if: %d\n", arr[i]);
+			// printf("if: %c\n", arr[i]);
 			return (0);
 		}
 		i++;

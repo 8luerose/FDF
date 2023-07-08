@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/06 20:20:58 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/07 20:02:40 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ int	main(int ac, char **av)
 
 		image_size_up(&vars, &map);
 		
-		draw_img(&image, &map);
+		printf("draw In\n");
+		// draw_img(&image, &map);
+		draw_row(&image, &map);
+		draw_col(&image, &map);
+		printf("draw Out\n");
 		// //draw
 
 		// for (int i =0 ; i< 200  ; i++)

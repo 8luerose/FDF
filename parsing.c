@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/03 20:58:12 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/07 20:12:02 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,11 @@ void	set_map_size(int fd, t_map *map, int i)
 			ft_perror("ERROR: Invalid map color");
 		free_for_split(arr);
 		if (check_width != map->width)
+		{
+			printf("ch_wi: %d\n", check_width);
+			printf("ma_wi: %d\n", map->width);
 			ft_perror("ERROR: Invalid map size");
+		}
 		map->height += 1;
 		line = get_next_line(fd);
 	}

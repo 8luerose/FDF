@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/06 20:57:21 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/07 20:04:59 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,14 @@ typedef struct s_image
 	int		endian;
 }	t_image;
 
+typedef struct s_dda
+{
+	double	dx;
+	double	dy;
+	double	x_inc;
+	double	y_inc;
+	double	step;
+}	t_dda;
 
 
 int		ft_atoi(const char *str);
@@ -98,11 +106,11 @@ void	image_size_up(t_vars *vars, t_map *map);
 int		max_gap(t_vars *var, t_map *map);
 
 
-void	draw_img(t_image *image, t_map *map);
+// void	draw_img(t_image *image, t_map *map);
 
 void	draw_col(t_image *img, t_map *map);
 void	draw_row(t_image *img, t_map *map);
-// void	DDA(x1, y1, t_coord , y2);
+void	DDA(t_image *img, t_map *map, t_coord first, t_coord second);
 void	pixel_input_color(t_image *image, int x, int y, int color);
 
 void	print_mlx(t_vars *vars, t_image *image);
