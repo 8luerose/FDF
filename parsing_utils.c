@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:54:08 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/07 20:21:10 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/08 18:07:32 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int	get_width(char *line)
 	len_width = 0;
 	arr = ft_split(line, ' ');
 	//printf("arr: %s\n", arr[i]);
-	while (arr[len_width] && arr[len_width + 1] != NULL)
+	// while (arr[len_width] && arr[len_width + 1] != NULL)
+	// 	len_width++;
+	while (arr[len_width])
 		len_width++;
 	free_for_split(arr);
 	return (len_width);
