@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/10 21:25:54 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/11 00:15:02 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 		parsing(av[1], &map);
 		
 
-		//isometric(&map);
+		isometric(&map);
 
 		
 		//등각투영법 이후 x,y,z 출력
@@ -41,12 +41,12 @@ int	main(int ac, char **av)
 
 		set_mlx(&vars, &image);
 
-		image_size_up(&vars, &map);
+		// image_size_up(&vars, &map);
 		
 		printf("draw In\n");
 		// draw_img(&image, &map);
-		draw_row(&image, &map);
 		draw_col(&image, &map);
+		draw_row(&image, &map);
 		printf("draw Out\n");
 		// //draw
 
