@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/07 20:12:02 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/10 23:59:18 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ void	set_map_coord(int fd, t_map *map, int x, int y)
 		// printf("\n");
 
 		i = 0;
-		while (arr[i])
+		while (arr[i] && *arr[i] != '\n')
 		{		
 			get_map_color(arr[i], &coord);
 			coord.x = i;

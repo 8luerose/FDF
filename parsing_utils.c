@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:54:08 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/08 18:07:32 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/10 23:54:04 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	get_width(char *line)
 	//printf("arr: %s\n", arr[i]);
 	// while (arr[len_width] && arr[len_width + 1] != NULL)
 	// 	len_width++;
-	while (arr[len_width])
+	while (arr[len_width] && *arr[len_width] != '\n')
 		len_width++;
 	free_for_split(arr);
 	return (len_width);
@@ -31,9 +31,9 @@ int	get_width(char *line)
 int	invalid_color_check(char **arr, int	i)
 {
 	char	**color_split;
-	int		color_split_cnt;
+	int		cnt;
 
-	while (arr[i])
+	while (arr[i] && *arr[i] != '\n')
 	{
 		color_split = ft_split(arr[i], ',');
 		if (!color_split)
@@ -41,10 +41,10 @@ int	invalid_color_check(char **arr, int	i)
 			free_for_split(color_split);
 			return (0);
 		}
-		color_split_cnt = 0;
-		while (color_split[color_split_cnt])
-			color_split_cnt++;
-		if (color_split_cnt > 3)
+		cnt = 0;
+		while (color_split[cnt] && *color_split[cnt] != '\n')
+			cnt++;
+		if (cnt > 3)
 		{
 			free_for_split(color_split);
 			return (0);
