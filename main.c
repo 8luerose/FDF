@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/11 00:15:02 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/11 00:24:13 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 
 		set_mlx(&vars, &image);
 
-		// image_size_up(&vars, &map);
+		image_size_up(&vars, &map);
 		
 		printf("draw In\n");
 		// draw_img(&image, &map);

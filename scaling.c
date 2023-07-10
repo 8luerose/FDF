@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/10 23:46:16 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/11 00:31:46 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	image_size_up(t_vars *vars, t_map *map)
 		x = 0;
 		while (x < map->width)
 		{
-			// map->p_map[y * map->width + x].x *=	30;
-			// map->p_map[y * map->width + x].y *= 30;
-			// map->p_map[x + map->width * y].z *= 30;
-			map->p_map[y * map->width + x].x *=	gap;
-			map->p_map[y * map->width + x].y *= gap;
-			map->p_map[x + map->width * y].z *= gap;
+			// map->p_map[y * map->width + x].x *=	gap;
+			// map->p_map[y * map->width + x].y *= gap;
+			// map->p_map[x + map->width * y].z *= gap;
+			map->p_map[y * map->width + x].x *=	(WIDTH / (double)map->width) * 0.4;
+			map->p_map[y * map->width + x].y *= (HEIGHT / (double)map->height) * 0.4;
+			map->p_map[y * map->width + x].z *= (HEIGHT / (double)map->height) * 0.4;
 			x++;
 		}
 		y++;
