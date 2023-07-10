@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/07 20:04:59 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/10 21:24:45 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ int		max_gap(t_vars *var, t_map *map);
 void	draw_col(t_image *img, t_map *map);
 void	draw_row(t_image *img, t_map *map);
 void	DDA(t_image *img, t_map *map, t_coord first, t_coord second);
+void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p);
 void	pixel_input_color(t_image *image, int x, int y, int color);
 
 void	print_mlx(t_vars *vars, t_image *image);
