@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:26:11 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/10 21:29:17 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/10 23:37:24 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,13 @@ void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
 	double	y_diff;
 	int		i;
 
-	x_diff = (WIDTH / 2 - (map->width / 2)) / 4;
-	y_diff = (HEIGHT / 2 - (map->height / 2)) / 4;
-	printf("x_diff:%f   y_diff:%f\n", x_diff, y_diff);
+	x_diff = (WIDTH / 2 - (map->width / 2)) / 2;
+	y_diff = (HEIGHT / 2 - (map->height / 2)) / 2;
+	//printf("x_diff:%f   y_diff:%f\n", x_diff, y_diff);
 	i = 0;
 	while (i <= dda->step)
 	{
-		if(!((p->x + TEST < 0 && p->y + TEST < 0) || (p->x + TEST > WIDTH && p->y + TEST > HEIGHT)))
+		if(!((p->x + x_diff < 0 && p->y + y_diff < 0) || (p->x + x_diff > WIDTH && p->y + y_diff > HEIGHT)))
 		{
 			pixel_input_color(image, p->x + x_diff, p->y + y_diff, p->color);
 			// pixel_input_color(image, p->x, p->y, p->color);

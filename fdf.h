@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/10 21:24:45 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/10 23:36:10 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 # include <fcntl.h>
 # include <math.h>
 
-# include "./mlx/mlx.h"
-// # include "./mlx2/mlx.h"
+// # include "./mlx/mlx.h"
+# include "./mlx2/mlx.h"
 
 # include "./get_next_line/get_next_line.h"
 
 # include <stdio.h>
 
-# define HEIGHT 5000
-# define WIDTH 5000
+# define WIDTH 1800
+# define HEIGHT 1000
 # define TEST 1000
 
 typedef struct s_coord
