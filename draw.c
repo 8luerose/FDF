@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:26:11 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/11 00:21:56 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/12 17:01:43 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
 
 	x_diff = (WIDTH / 2 - (map->width / 2)) / 2;
 	// y_diff = (HEIGHT / 2 - (map->height / 2)) + (HEIGHT / (double)map->height) * 1;;
-	y_diff = (HEIGHT / 2 - (map->height / 2)) + (HEIGHT / (double)map->height) * 2;;
+	// y_diff = (HEIGHT / 2 - (map->height / 2)) + (HEIGHT / (double)map->height) * 2;;
+	y_diff = (HEIGHT / 2 - (map->height / 2)) / 2;
 	//printf("x_diff:%f   y_diff:%f\n", x_diff, y_diff);
 	i = 0;
 	while (i <= dda->step)
