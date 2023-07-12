@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:26:11 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/12 18:06:51 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:20:48 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
 	int		i;
 
 	x_diff = ((WIDTH / 2) - (map->width / 2)) / 2.0;
-	y_diff = ((HEIGHT / 2) - (map->height / 2)) / 0.7;
+	y_diff = ((HEIGHT / 2) - (map->height / 2)) / 2.0;
 
 
 
@@ -101,6 +101,7 @@ void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
 			pixel_input_color(image, (p->x + x_diff), (p->y + y_diff), p->color);
 			p->x = p->x + dda->x_inc;
 			p->y = p->y + dda->y_inc;
+			// pixel_input_color(image, (p->x + dda->x_inc * i + x_diff), (p->y + dda->y_inc * i + y_diff), p->color);
 		}
 		i++;
 	}
