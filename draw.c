@@ -6,17 +6,11 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:26:11 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/12 17:01:43 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:06:51 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-// void	draw_img(t_image *image, t_map *map)
-// {
-// 	draw_row(image, map);
-// 	draw_col(image, map);
-// }
 
 void	draw_row(t_image *image, t_map *map)
 {
@@ -85,17 +79,6 @@ void	draw_col(t_image *image, t_map *map)
 	p_dda = &dda_utils;
 	i = 0;
 	DDA_inc(image, map, p_dda, p);
-	// while (i <= dda_utils.step)
-	// {
-	// 	if(!((first.x + TEST < 0 && first.y + TEST < 0) || (first.x + TEST > WIDTH && first.y + TEST > HEIGHT)))
-	// 	{	
-	// 		pixel_input_color(image, first.x + TEST, \
-	// 			first.y + TEST, first.color);	
-	// 		first.x = first.x + dda_utils.x_inc;
-	// 		first.y = first.y + dda_utils.y_inc;
-	// 	}
-	// 	i++;
-	// }
 }
 
 void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
@@ -104,18 +87,18 @@ void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
 	double	y_diff;
 	int		i;
 
-	x_diff = (WIDTH / 2 - (map->width / 2)) / 2;
-	// y_diff = (HEIGHT / 2 - (map->height / 2)) + (HEIGHT / (double)map->height) * 1;;
-	// y_diff = (HEIGHT / 2 - (map->height / 2)) + (HEIGHT / (double)map->height) * 2;;
-	y_diff = (HEIGHT / 2 - (map->height / 2)) / 2;
-	//printf("x_diff:%f   y_diff:%f\n", x_diff, y_diff);
+	x_diff = ((WIDTH / 2) - (map->width / 2)) / 2.0;
+	y_diff = ((HEIGHT / 2) - (map->height / 2)) / 0.7;
+
+
+
 	i = 0;
 	while (i <= dda->step)
 	{
-		if(!((p->x + x_diff < 0 && p->y + y_diff < 0) || (p->x + x_diff > WIDTH && p->y + y_diff > HEIGHT)))
+		// if(!((p->x + x_diff < 0 && p->y + y_diff < 0) || (p->x + x_diff > WIDTH && p->y + y_diff > HEIGHT)))
+		if((p->x + x_diff > 0 && p->y + y_diff > 0) || (p->x + x_diff < WIDTH && p->y + y_diff < HEIGHT))
 		{
-			pixel_input_color(image, p->x + x_diff, p->y + y_diff, p->color);
-			// pixel_input_color(image, p->x, p->y, p->color);
+			pixel_input_color(image, (p->x + x_diff), (p->y + y_diff), p->color);
 			p->x = p->x + dda->x_inc;
 			p->y = p->y + dda->y_inc;
 		}
@@ -130,8 +113,6 @@ void	pixel_input_color(t_image *image, int x, int y, int color)
 	dst = image->ptr + (y * image->line_length + x * (image->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
-
-
 
 /*
 
