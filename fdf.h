@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/13 17:13:41 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/14 01:25:57 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 
 # include <stdio.h>
 
-// # define WIDTH 1800
-// # define HEIGHT 1000
-# define WIDTH 2000
+# define WIDTH 1500
 # define HEIGHT 1500
+// # define WIDTH 2000
+// # define HEIGHT 1500
 # define TEST 10
 
 typedef struct s_coord
@@ -44,6 +44,10 @@ typedef struct s_map
 {
 	int		width;
 	int		height;
+	double	max_x;
+	double	max_y;
+	double	min_x;
+	double	min_y;
 	t_coord	*p_map;
 }	t_map;
 
@@ -104,9 +108,15 @@ void	rotate_z(double *x, double *y, double *z);
 
 void	set_mlx(t_vars *vars, t_image *image);
 
+void	max_min_xy(t_map *map);
+double	find_max_x(t_map *map);
+double	find_max_y(t_map *map);
+double	find_min_x(t_map *map);
+double	find_min_y(t_map *map);
+
 // void	image_size_up(t_vars *vars, t_map *map);
 void	image_size_up(t_map *map);
-int		max_gap(t_map *map);
+double	max_gap(t_map *map);
 
 
 // void	draw_img(t_image *image, t_map *map);
