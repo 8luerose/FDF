@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/13 16:54:15 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 17:16:23 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ void	image_size_up(t_map *map)
 		x = 0;
 		while (x < map->width)
 		{
-			map->p_map[y * map->width + x].x *=	gap;
-			map->p_map[y * map->width + x].y *= gap;
-			map->p_map[x + map->width * y].z *= gap;
-			// map->p_map[y * map->width + x].x *=	(WIDTH / (double)map->width) * 0.4;
+			// map->p_map[y * map->width + x].x *=	gap;
+			// map->p_map[y * map->width + x].y *= gap;
+			// map->p_map[x + map->width * y].z *= gap;
+			map->p_map[y * map->width + x].x *=	(WIDTH / (double)map->width) * 0.4;
+			map->p_map[y * map->width + x].y *= TEST + 10;
+			map->p_map[y * map->width + x].z *= TEST + 50;
 			// map->p_map[y * map->width + x].y *= (HEIGHT / (double)map->height) * 0.4;
 			// map->p_map[y * map->width + x].z *= (HEIGHT / (double)map->height) * 0.4;
 			x++;
@@ -93,6 +95,7 @@ int	max_gap(t_map *map)
 	}
 	else
 	{
+		// gap = (HEIGHT / (double)map->height) * 0.4;
 		gap = (HEIGHT / (double)map->height) * 0.4;
 	}
 
