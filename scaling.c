@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/14 02:04:32 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/14 02:06:13 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,10 +124,10 @@ double	max_gap(t_map *map)
 		// 	printf("break gap= %f\n", gap);
 		// 	break;
 		// }
-		if (((WIDTH - map->width) / 2 < fabs(map->min_x * gap)) && (fabs(map->min_x * gap) < WIDTH - 100) \
-			&& ((WIDTH - map->width) / 2  < fabs(map->max_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 100) \
-			&& ((HEIGHT - map->height) / 2  < fabs(map->min_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - 100) \
-			&& ((HEIGHT - map->height) / 2 < fabs(map->max_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - 100))
+		if (((WIDTH - map->width) / 2 < fabs(map->min_x * gap)) && (fabs(map->min_x * gap) < WIDTH - (WIDTH - map->width) / 2) \
+			&& ((WIDTH - map->width) / 2  < fabs(map->max_x * gap)) && (fabs(map->max_x * gap) < WIDTH - (WIDTH - map->width) / 2) \
+			&& ((HEIGHT - map->height) / 2  < fabs(map->min_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - (HEIGHT - map->height) / 2) \
+			&& ((HEIGHT - map->height) / 2 < fabs(map->max_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - (HEIGHT - map->height) / 2))
 		{
 			printf("break gap= %f\n", gap);
 			break;
