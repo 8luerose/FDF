@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scaling.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/13 09:04:28 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 16:54:15 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,28 @@ int	max_gap(t_map *map)
 	// }
 	// return (gap);
 
-	gap = (HEIGHT / (double)map->height) * 0.4;
+	// if (map->height >= 500)
+	// {
+	// 	gap = 0;
+	// }
+	// else if (map->height > )
+
+
+
+	// gap = (HEIGHT / (double)map->height) * 0.4;
+	if (((HEIGHT / (double)map->height) * 0.4) <= 1)
+	{
+		gap = 1;
+	}
+	if (map->height >= 500)
+	{
+		gap = 2.25;
+	}
+	else
+	{
+		gap = (HEIGHT / (double)map->height) * 0.4;
+	}
+
 	return (gap);
 }
 

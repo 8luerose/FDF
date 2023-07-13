@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:26:11 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/13 11:32:55 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 16:39:56 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,10 @@ void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
 	// x_diff = ((WIDTH / 2) - (map->width / 2)) / 2.0;
 	// y_diff = ((HEIGHT / 2) - (map->height / 2)) / 2.0;
 
-	x_diff = ((WIDTH / 2) - (map->p_map[(map->width / 2) + (map->width * (map->height / 2))].x)) / 1.0;
-	y_diff = ((HEIGHT / 2) - (map->p_map[(map->width / 2) + (map->width * (map->height / 2))].y)) / 1.0;
-
+	// x_diff = ((WIDTH / 2) - (map->p_map[(map->width / 2) + (map->width * (map->height / 2))].x)) / 1.0;
+	// y_diff = ((HEIGHT / 2) - (map->p_map[(map->width / 2) + (map->width * (map->height / 2))].y)) / 1.0;
+	x_diff = WIDTH / 2;
+	y_diff = HEIGHT / 2;
 	i = 0;
 	while (i <= dda->step)
 	{

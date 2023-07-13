@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/13 11:23:22 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 16:37:07 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ void	set_map_coord(int fd, t_map *map, int x, int y)
 	line = get_next_line(fd);
 	while (line)
 	{
-		coord.y = y;
+		coord.y = y - map->height/2;
 		arr = ft_split(line, ' ');
 
 		//map 파싱한 결과.
@@ -152,7 +152,7 @@ void	set_map_coord(int fd, t_map *map, int x, int y)
 		while (arr[i])
 		{		
 			get_map_color(arr[i], &coord);
-			coord.x = i;
+			coord.x = i - map->width/2;
 			map->p_map[y * map->width + i] = coord;
 			// printf("%f %f\n", coord.x, map->p_map[y * map->width + i].x);
 			i++;
