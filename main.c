@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/13 08:58:41 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:24:13 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 		parsing(av[1], &map);
 		
 
-		isometric(&map);
+		// isometric(&map);
 
 		
 		//등각투영법 이후 x,y,z 출력

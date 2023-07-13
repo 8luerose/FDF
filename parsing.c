@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/13 08:53:29 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:23:22 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ void	set_map_coord(int fd, t_map *map, int x, int y)
 	line = get_next_line(fd);
 	while (line)
 	{
-		// coord.y = y;
+		coord.y = y;
 		arr = ft_split(line, ' ');
 
 		//map 파싱한 결과.
