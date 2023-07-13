@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:54:08 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/12 17:20:20 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 08:47:03 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	get_width(char *line)
 	int		len_width;
 	char	**arr;
 
+	if (!line || *line == '\n')
+		ft_perror("ERROR: Invalid map volume");
 	len_width = 0;
 	arr = ft_split(line, ' ');
 	while (arr[len_width] && *arr[len_width] != '\n')
@@ -48,7 +50,8 @@ int	invalid_color_check(char **arr, int	i)
 	int		cnt;
 
 	while (arr[i] && *arr[i] != '\n')
-	{
+	{	
+		// == is_color
 		color_split = ft_split(arr[i], ',');
 		if (!color_split)
 		{
@@ -58,7 +61,7 @@ int	invalid_color_check(char **arr, int	i)
 		cnt = 0;
 		while (color_split[cnt] && *color_split[cnt] != '\n')
 			cnt++;
-		if (cnt > 3)
+		if (cnt > 2 || cnt == 0)
 		{
 			free_for_split(color_split);
 			return (0);
@@ -77,7 +80,12 @@ int	is_valid_num(char *arr)
 	i = 0;
 	if (arr[i] == '-' || arr[i] == '+')
 		i++;
-	if (arr == NULL || arr[i] == '\0' || arr[i] == '\n')
+	// if (arr == NULL || arr[i] == '\0' || arr[i] == '\n')
+	// {
+	// 	printf("arr[i]: %c\n", arr[i]);
+	// 	return (0);
+	// }
+	if (arr[i] == '\0')
 	{
 		printf("arr[i]: %c\n", arr[i]);
 		return (0);
@@ -108,7 +116,7 @@ int	is_color(char *arr)
 	color_split_cnt = 0;
 	while (color_split[color_split_cnt])
 		color_split_cnt++;
-	if (color_split_cnt > 3)
+	if (color_split_cnt > 2 || color_split_cnt == 0) 
 	{
 		free_for_split(color_split);
 		return (0);

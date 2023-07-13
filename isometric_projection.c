@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   isometric_projection.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 05:54:30 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/03 21:00:21 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 08:55:10 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	isometric(t_map *map)
 
 void	rotate_x(double *x, double *y, double *z)
 {
-	double	previous_x;
+	// double	previous_x;
 	double	previous_y;
 	double	previous_z;
 	double	theta;
 
-	previous_x = 0.0;
+	// previous_x = 0.0;
 	previous_y = *y;
 	previous_z = *z;
 	theta = M_PI / 3;
@@ -46,12 +46,12 @@ void	rotate_x(double *x, double *y, double *z)
 void	rotate_y(double *x, double *y, double *z)
 {
 	double	previous_x;
-	double	previous_y;
+	// double	previous_y;
 	double	previous_z;
 	double	theta;
 
 	previous_x = *x;
-	previous_y = 0.0;
+	// previous_y = 0.0;
 	previous_z = *z;
 	theta = M_PI / 6;
 	*x = previous_x * cos(theta) + previous_z * sin(theta);
@@ -63,12 +63,12 @@ void	rotate_z(double *x, double *y, double *z)
 {
 	double	previous_x;
 	double	previous_y;
-	double	previous_z;
+	// double	previous_z;
 	double	theta;
 
 	previous_x = *x;
 	previous_y = *y;
-	previous_z = 0.0;
+	// previous_z = 0.0;
 	theta = M_PI / 4 * -1;
 	*x = previous_x * cos(theta) - previous_y * sin(theta);
 	*y = previous_x * sin(theta) + previous_y * cos(theta);

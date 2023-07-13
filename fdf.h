@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/11 00:03:26 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 08:58:22 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,9 @@ void	rotate_z(double *x, double *y, double *z);
 
 void	set_mlx(t_vars *vars, t_image *image);
 
-void	image_size_up(t_vars *vars, t_map *map);
-int		max_gap(t_vars *var, t_map *map);
+// void	image_size_up(t_vars *vars, t_map *map);
+void	image_size_up(t_map *map);
+int		max_gap(t_map *map);
 
 
 // void	draw_img(t_image *image, t_map *map);

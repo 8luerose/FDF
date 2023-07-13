@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setting_mlx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 06:58:13 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/06 20:06:03 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 09:01:55 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	set_mlx(t_vars *vars, t_image *image)
 void	print_mlx(t_vars *vars, t_image *image)
 {
 	mlx_put_image_to_window(vars->mlx, vars->win, image->img, 0, 0);
-	mlx_hook(vars->win, 02, 1L << 0, quit_window, vars);
+	mlx_hook(vars->win, 2, 1L << 0, quit_window, vars);
 	mlx_loop(vars->mlx);
 }
 

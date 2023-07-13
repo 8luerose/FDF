@@ -6,19 +6,19 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/11 00:31:46 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 09:04:28 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	image_size_up(t_vars *vars, t_map *map)
+void	image_size_up(t_map *map)
 {
 	int		x;
 	int		y;
 	int		gap;
 
-	gap = max_gap(vars, map);
+	gap = max_gap(map);
 	printf("\n\n\n gap: %d \n", gap);
 
 	y = 0;
@@ -27,23 +27,23 @@ void	image_size_up(t_vars *vars, t_map *map)
 		x = 0;
 		while (x < map->width)
 		{
-			// map->p_map[y * map->width + x].x *=	gap;
-			// map->p_map[y * map->width + x].y *= gap;
-			// map->p_map[x + map->width * y].z *= gap;
-			map->p_map[y * map->width + x].x *=	(WIDTH / (double)map->width) * 0.4;
-			map->p_map[y * map->width + x].y *= (HEIGHT / (double)map->height) * 0.4;
-			map->p_map[y * map->width + x].z *= (HEIGHT / (double)map->height) * 0.4;
+			map->p_map[y * map->width + x].x *=	gap;
+			map->p_map[y * map->width + x].y *= gap;
+			map->p_map[x + map->width * y].z *= gap;
+			// map->p_map[y * map->width + x].x *=	(WIDTH / (double)map->width) * 0.4;
+			// map->p_map[y * map->width + x].y *= (HEIGHT / (double)map->height) * 0.4;
+			// map->p_map[y * map->width + x].z *= (HEIGHT / (double)map->height) * 0.4;
 			x++;
 		}
 		y++;
 	}
 }
 
-int	max_gap(t_vars *var, t_map *map)
+int	max_gap(t_map *map)
 {
-	int	gap;
-	int	max;
-	int	i;
+	double	gap;
+	int		max;
+	int		i;
 
 	
 	i = 20;

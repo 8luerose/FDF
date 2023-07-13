@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/12 18:08:53 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/13 08:58:41 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,9 @@ int	main(int ac, char **av)
 		}
 	
 
-		set_mlx(&vars, &image);
+		image_size_up(&map);
 
-		image_size_up(&vars, &map);
-		
+		set_mlx(&vars, &image);		
 		printf("draw In\n");
 		// draw_img(&image, &map);
 		draw_col(&image, &map);
