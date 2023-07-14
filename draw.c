@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:26:11 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/13 16:39:56 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/15 00:34:38 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,36 @@ void	draw_col(t_image *image, t_map *map)
 	DDA_inc(image, map, p_dda, p);
 }
 
+
+// static int	get_width_center(t_map *map)
+// {
+// 	int	mid_i;
+// 	int	mid_j;
+
+// 	mid_i = map->width / 2;
+// 	mid_j = map->width * (map->height / 2);
+// 	return ((WIDTH / 2) - (map->p_map[mid_i + mid_j].x));
+// }
+
+// static int	get_height_center(t_map *map)
+// {
+// 	int		mid_i;
+// 	int		mid_j;
+
+// 	mid_i = map->width / 2;
+// 	mid_j = map->width * (map->height / 2);
+// 	return ((HEIGHT / 2) - (map->p_map[mid_i + mid_j].y));
+// }
+
+// static int	is_over_window(t_map *map, double x, double y)
+// {
+// 	return (x + get_width_center(map) + map->move_x > WIDTH \
+// 		|| x + get_width_center(map) + map->move_x < 0 \
+// 		|| y + get_height_center(map) + map->move_y > HEIGHT \
+// 		|| y + get_height_center(map) + map->move_y < 0);
+// }
+
+
 void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
 {
 	double	x_diff;
@@ -92,8 +122,19 @@ void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
 
 	// x_diff = ((WIDTH / 2) - (map->p_map[(map->width / 2) + (map->width * (map->height / 2))].x)) / 1.0;
 	// y_diff = ((HEIGHT / 2) - (map->p_map[(map->width / 2) + (map->width * (map->height / 2))].y)) / 1.0;
+	
+	
+	
 	x_diff = WIDTH / 2;
 	y_diff = HEIGHT / 2;
+	
+	// x_diff = get_width_center(map);
+	// y_diff = get_height_center(map);
+
+
+	// x_diff = 0;
+	// y_diff = 0;
+
 	i = 0;
 	while (i <= dda->step)
 	{
@@ -110,6 +151,39 @@ void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
 		i++;
 	}
 }
+
+
+//원래버전
+
+// void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
+// {
+// 	double	x_diff;
+// 	double	y_diff;
+// 	int		i;
+
+// 	// x_diff = ((WIDTH / 2) - (map->width / 2)) / 2.0;
+// 	// y_diff = ((HEIGHT / 2) - (map->height / 2)) / 2.0;
+
+// 	// x_diff = ((WIDTH / 2) - (map->p_map[(map->width / 2) + (map->width * (map->height / 2))].x)) / 1.0;
+// 	// y_diff = ((HEIGHT / 2) - (map->p_map[(map->width / 2) + (map->width * (map->height / 2))].y)) / 1.0;
+// 	x_diff = WIDTH / 2;
+// 	y_diff = HEIGHT / 2;
+// 	i = 0;
+// 	while (i <= dda->step)
+// 	{
+// 		// if(!((p->x + x_diff < 0 && p->y + y_diff < 0) || (p->x + x_diff > WIDTH && p->y + y_diff > HEIGHT)))
+// 		if((p->x + x_diff > 0 && p->y + y_diff > 0) || (p->x + x_diff < WIDTH && p->y + y_diff < HEIGHT))
+// 		{
+// 			pixel_input_color(image, (p->x + x_diff), (p->y + y_diff), p->color);
+// 			// p->x = p->x + dda->x_inc;
+// 			// p->y = p->y + dda->y_inc;
+// 			// pixel_input_color(image, (p->x + dda->x_inc * i + x_diff), (p->y + dda->y_inc * i + y_diff), p->color);
+// 		}
+// 		p->x = p->x + dda->x_inc;
+// 		p->y = p->y + dda->y_inc;
+// 		i++;
+// 	}
+// }
 
 void	pixel_input_color(t_image *image, int x, int y, int color)
 {

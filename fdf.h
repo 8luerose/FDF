@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/14 01:25:57 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/14 10:52:12 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ double	find_max_x(t_map *map);
 double	find_max_y(t_map *map);
 double	find_min_x(t_map *map);
 double	find_min_y(t_map *map);
+
+void	move_center(t_map *map);
 
 // void	image_size_up(t_vars *vars, t_map *map);
 void	image_size_up(t_map *map);
