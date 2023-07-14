@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/15 00:40:17 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/15 01:40:08 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	image_size_up(t_map *map)
 	gap = max_gap(map);
 	printf("\n\n\n gap: %f \n", gap);
 	
-	// gap = 5;
+	// gap = (HEIGHT / (double)map->height) * 0.4;
+	// gap = 10;
 	y = 0;
 	while (y < map->height)
 	{
@@ -145,38 +146,7 @@ double	max_gap(t_map *map)
 
 
 
-	//type(2)
-
-	while (gap > 1)
-	{
-		// if ((100 < fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 100) && 
-		// 	(100 < fabs(map->min_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - 100)){
-		// 	printf("break gap= %f\n", gap);
-		// 	break;
-		// }
-	
-		if ((map->max_x * gap < WIDTH - (WIDTH - (map->width)) / 2.0) \
-			&& (map->max_y * gap < HEIGHT - (HEIGHT - (map->height)) / 2.0))
-			{
-				printf("break gap= %f\n", gap);
-				break;
-			}
-		gap -= 0.1;
-	
-		// 	if ((map->width * gap > WIDTH) || (map->height * gap > HEIGHT))
-		// {
-		// 	if ((map->width * gap < WIDTH - (WIDTH - (map->width)) / 2.0) \
-		// 		&& (map->height * gap < HEIGHT - (HEIGHT - (map->height)) / 2.0))
-		// 		{
-		// 			printf("break gap= %f\n", gap);
-		// 			break;
-		// 		}
-		// 	gap -= 0.1;
-		// }
-	}
-
-
-	//type(3)
+	// //type(2)
 
 	// while (gap > 1)
 	// {
@@ -185,19 +155,109 @@ double	max_gap(t_map *map)
 	// 	// 	printf("break gap= %f\n", gap);
 	// 	// 	break;
 	// 	// }
-	// 	if ((map->width * gap < WIDTH - 200) && (map->height * gap < HEIGHT - 200))
-	// 	{
+	
+	// 	if ((map->max_x * gap < WIDTH - (WIDTH - (map->width)) / 2.0) \
+	// 		&& (map->max_y * gap < HEIGHT - (HEIGHT - (map->height)) / 2.0))
+	// 		{
+	// 			printf("break gap= %f\n", gap);
+	// 			break;
+	// 		}
+	// 	gap -= 0.1;
+	
+	// 	// 	if ((map->width * gap > WIDTH) || (map->height * gap > HEIGHT))
+	// 	// {
+	// 	// 	if ((map->width * gap < WIDTH - (WIDTH - (map->width)) / 2.0) \
+	// 	// 		&& (map->height * gap < HEIGHT - (HEIGHT - (map->height)) / 2.0))
+	// 	// 		{
+	// 	// 			printf("break gap= %f\n", gap);
+	// 	// 			break;
+	// 	// 		}
+	// 	// 	gap -= 0.1;
+	// 	// }
+	// }
 
-	// 		printf("break gap= %f\n", gap);
+
+	// type(3)
+
+	// gap = 100;
+	// while (gap > 1)
+	// {
+	// 	// if ((100 < fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 100) && 
+	// 	// 	(100 < fabs(map->min_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - 100)){
+	// 	// 	printf("break gap= %f\n", gap);
+	// 	// 	break;
+	// 	// }
+	// 	if ((map->width * gap > WIDTH) || (map->height * gap > HEIGHT))
+	// 	{
+	// 		// if ((200 < fabs(map->min_x * gap)) && (fabs(map->min_x * gap) < WIDTH - 200) \
+	// 		// 	&& (200  < fabs(map->max_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 200) \
+	// 		// 	&& (200  < fabs(map->min_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - 200) \
+	// 		// 	&& (200 < fabs(map->max_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - 200))
+	// 		// // if ((fabs(map->min_x * gap) < WIDTH - 200) \
+	// 		// // 	&&(fabs(map->max_x * gap) < WIDTH - 200) \
+	// 		// // 	&&(fabs(map->min_y * gap) < HEIGHT - 200) \
+	// 		// // 	&&(fabs(map->max_y * gap) < HEIGHT - 200))
+	// 		// {
+	// 		// 	printf("break gap= %f\n", gap);
+	// 		// 	break;
+	// 		// }
+	// 		printf("*\n");
 	// 		break;
 	// 	}
 	// 	gap -= 0.1; // gap 감소 폭 조정이 필요할 수 있음
+	// 	// gap -= 0.1; // gap 감소 폭 조정이 필요할 수 있음
 	// }
 
 	// if (gap <= 1)
 	// 	gap = 1; // 1보다 큰 최소한의 gap
 
 
+
+	gap = 100;
+	while (gap > 1)
+	{
+		// if ((100 < fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 100) && 
+		// 	(100 < fabs(map->min_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - 100)){
+		// 	printf("break gap= %f\n", gap);
+		// 	break;
+		// }
+		// if ((map->width * gap < WIDTH) && (map->height * gap < HEIGHT))
+		// {
+		// 	// if ((200 < fabs(map->min_x * gap)) && (fabs(map->min_x * gap) < WIDTH - 200) \
+		// 	// 	&& (200  < fabs(map->max_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 200) \
+		// 	// 	&& (200  < fabs(map->min_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - 200) \
+		// 	// 	&& (200 < fabs(map->max_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - 200))
+		// 	// // if ((fabs(map->min_x * gap) < WIDTH - 200) \
+		// 	// // 	&&(fabs(map->max_x * gap) < WIDTH - 200) \
+		// 	// // 	&&(fabs(map->min_y * gap) < HEIGHT - 200) \
+		// 	// // 	&&(fabs(map->max_y * gap) < HEIGHT - 200))
+		// 	// {
+		// 	// 	printf("break gap= %f\n", gap);
+		// 	// 	break;
+		// 	// }
+		// 	printf("**********\n");
+		// 	break;
+		// }
+		// if (((WIDTH - map->width) / 2 < fabs(map->min_x * gap)) && (fabs(map->min_x * gap) < WIDTH - (WIDTH - map->width) / 2) \
+		// 	&& ((WIDTH - map->width) / 2  < fabs(map->max_x * gap)) && (fabs(map->max_x * gap) < WIDTH - (WIDTH - map->width) / 2) \
+		// 	&& ((HEIGHT - map->height) / 2  < fabs(map->min_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - (HEIGHT - map->height) / 2) \
+		// 	&& ((HEIGHT - map->height) / 2 < fabs(map->max_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - (HEIGHT - map->height) / 2 ))
+			// if ((fabs(map->min_x * gap) < WIDTH - 200) \
+			// 	&&(fabs(map->max_x * gap) < WIDTH - 200) \
+			// 	&&(fabs(map->min_y * gap) < HEIGHT - 200) \
+			// 	&&(fabs(map->max_y * gap) < HEIGHT - 200))
+		if ((750 < fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - (WIDTH - map->width) / 2) \
+			&& (750 < fabs(map->min_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - (HEIGHT - map->height) / 2 ))
+			{
+				printf("break gap= %f\n", gap);
+				break;
+			}
+		gap -= 0.1; // gap 감소 폭 조정이 필요할 수 있음
+		// gap -= 0.1; // gap 감소 폭 조정이 필요할 수 있음
+	}
+
+	if (gap <= 1)
+		gap = 1; // 1보다 큰 최소한의 gap
 
 	// if (gap <= 1)
 	// 	gap = 1; // 1보다 큰 최소한의 gap
@@ -221,11 +281,11 @@ double	max_gap(t_map *map)
 	// printf("|| (map->height * gap)= %f\n", (map->height * gap));
 
 	//type(3)
-	printf("WIDTH: %d   HEIGHT: %d\n", WIDTH, HEIGHT);
-	printf("(WIDTH - 200) = %d\n", (WIDTH - 200));
-	printf("map->width * gap = %f\n", map->width * gap);
-	printf("(HEIGHT - 200) = %d\n", (HEIGHT - 200));
-	printf("map->height * gap = %f\n", map->height * gap);
+	// printf("WIDTH: %d   HEIGHT: %d\n", WIDTH, HEIGHT);
+	// printf("(WIDTH - 200) = %d\n", (WIDTH - 200));
+	// printf("map->width * gap = %f\n", map->width * gap);
+	// printf("(HEIGHT - 200) = %d\n", (HEIGHT - 200));
+	// printf("map->height * gap = %f\n", map->height * gap);
 	
 	return gap;
 
