@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scaling.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/16 18:50:19 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/16 22:26:16 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -344,8 +344,12 @@ double	max_gap(t_map *map)
 		// {
 		// 	gap--;
 		// }
-		if (((WIDTH - (x_diff * gap)) / 2  < map->min_x * gap) && (map->max_x * gap < WIDTH - 200) \
-			&& ((HEIGHT - (y_diff * gap)) / 2 < map->min_y * gap) && (map->max_y * gap < HEIGHT - 200)) 
+
+		
+		// if (((WIDTH - (x_diff * gap)) / 2  < fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 200) \
+		// 	&& ((HEIGHT - (y_diff * gap)) / 2 < fabs(map->min_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - 200))
+		if (((WIDTH - fabs(x_diff * gap)) / 2.0  < fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 200) \
+			&& ((HEIGHT - fabs(y_diff * gap)) / 2.0 < fabs(map->max_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - 200)) 
 		{
 			printf("break gap:  %f\n", gap);
 			break;
@@ -357,6 +361,12 @@ double	max_gap(t_map *map)
 	}
 	if (gap <= 1)
 		gap = 1;
+
+	printf("1_ (WIDTH - (x_diff * gap)) / 2.0: %f \n fabs(map->min_x * gap): %f\n", (WIDTH - fabs(x_diff * gap)) / 2.0, fabs(map->min_x * gap));
+	printf("2_ WIDTH - 200: %d \n fabs(map->max_x * gap): %f\n", WIDTH - 200, fabs(map->max_x * gap));
+	printf("3_ (HEIGHT - (y_diff * gap)) / 2.0: %f \n fabs(map->max_y * gap): %f\n", (HEIGHT - fabs(y_diff * gap)) / 2.0, fabs(map->max_y * gap));
+	printf("4_ HEIGHT - 200: %d \n fabs(map->min_y * gap): %f\n", HEIGHT - 200, fabs(map->min_y * gap));
+	
 	return (gap);
 }
 
