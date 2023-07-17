@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/17 17:30:01 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:36:28 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	image_size_up(t_map *map)
 		{
 			map->p_map[y * map->width + x].x *=	gap;
 			map->p_map[y * map->width + x].y *=	gap;
-			map->p_map[y * map->width + x].z *= gap;
+			// map->p_map[y * map->width + x].z *= gap;
 
-			// map->p_map[y * map->width + x].x *=	(WIDTH / (double)map->width) * 0.4;
-			// map->p_map[y * map->width + x].y *= TEST + 10;
+			// map->p_map[y * map->width + x].x *=	(HEIGHT / (double)map->height) * 0.4;
+			// map->p_map[y * map->width + x].y *= (WIDTH / (double)map->width) * 0.4;
 			// map->p_map[y * map->width + x].z *= TEST + 50;
 
 			// map->p_map[y * map->width + x].y *= (HEIGHT / (double)map->height) * 0.4;
@@ -338,7 +338,7 @@ double	max_gap(t_map *map)
 	x_diff = map->max_x - map->min_x;
 	y_diff = map->max_y - map->min_y;
 	printf("x_diff: %f  \n  y_diff: %f\n",x_diff, y_diff);
-	gap = 10;
+	gap = 50;
 	while (gap > 1)
 	{
 		// if ((x_diff * gap > WIDTH - 200) || (y_diff * gap > HEIGHT - 200))

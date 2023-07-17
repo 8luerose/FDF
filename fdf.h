@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/17 17:32:32 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:34:46 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 # include <stdio.h>
 
-# define WIDTH 2000
+# define WIDTH 2500
 # define HEIGHT 1500
 // # define WIDTH 2000
 // # define HEIGHT 1500
