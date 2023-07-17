@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scaling.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/16 22:26:16 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/17 17:06:16 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -337,7 +337,8 @@ double	max_gap(t_map *map)
 
 	x_diff = map->max_x - map->min_x;
 	y_diff = map->max_y - map->min_y;
-	gap = 100;
+	printf("x_diff: %f  \n  y_diff: %f\n",x_diff, y_diff);
+	gap = 50;
 	while (gap > 1)
 	{
 		// if ((x_diff * gap > WIDTH - 200) || (y_diff * gap > HEIGHT - 200))
@@ -348,8 +349,8 @@ double	max_gap(t_map *map)
 		
 		// if (((WIDTH - (x_diff * gap)) / 2  < fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 200) \
 		// 	&& ((HEIGHT - (y_diff * gap)) / 2 < fabs(map->min_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - 200))
-		if (((WIDTH - fabs(x_diff * gap)) / 2.0  < fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 200) \
-			&& ((HEIGHT - fabs(y_diff * gap)) / 2.0 < fabs(map->max_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - 200)) 
+		if (((WIDTH - fabs(x_diff * gap)) / 2.0  > fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 200) \
+			&& ((HEIGHT - fabs(y_diff * gap)) / 2.0 > fabs(map->max_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - 200)) 
 		{
 			printf("break gap:  %f\n", gap);
 			break;
