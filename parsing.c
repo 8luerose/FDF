@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/13 16:37:07 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/19 20:27:40 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,45 @@ void	set_map_size(int fd, t_map *map, int i)
 	}
 	free(line);
 }
+
+// void	set_map_size(int fd, t_map *map, int i)
+// {
+// 	char	*line;
+// 	char	**arr;
+// 	int		check_width;
+// 	int		max;
+
+// 	line = get_next_line(fd);
+// 	map->width = get_width(line);
+// 	map->height = 0;
+// 	// max = -2147483648;
+// 	while (line)
+// 	{
+// 		arr = ft_split(line, ' ');
+// 		free(line);
+// 		if (arr == NULL || *arr[0] == '\0')
+// 			ft_perror("ERROR: Invalid map");
+// 		check_width = invalid_color_check(arr, i); //i = 0;
+// 		if (!check_width)
+// 			ft_perror("ERROR: Invalid map color");
+// 		free_for_split(arr);
+		
+// 		// if (check_width >= max)
+// 		// 	max = check_width;
+
+// 		if (check_width != map->width)
+// 		{
+// 			printf("ch_wi: %d\n", check_width);
+// 			printf("ma_wi: %d\n", map->width);
+// 			ft_perror("ERROR: Invalid map size");
+// 		}
+// 		map->height += 1;
+// 		// map->width = max;
+// 		line = get_next_line(fd);
+// 	}
+// 	free(line);
+// }
+//Ver. <7/19>
 
 void	set_map_coord(int fd, t_map *map, int x, int y)
 {
