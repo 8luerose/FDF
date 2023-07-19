@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 20:04:44 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/17 17:36:28 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/19 19:51:59 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ double	max_gap(t_map *map)
 	double	gap;
 	double	x_diff;
 	double	y_diff;
+	double	x_margin;
+	double	y_margin;
 	int		max;
 	int		i;
 
@@ -335,9 +337,11 @@ double	max_gap(t_map *map)
 
 	// return (gap);
 
-	x_diff = map->max_x - map->min_x;
-	y_diff = map->max_y - map->min_y;
-	printf("x_diff: %f  \n  y_diff: %f\n",x_diff, y_diff);
+	// x_diff = map->max_x - map->min_x;
+	// y_diff = map->max_y - map->min_y;
+	x_diff = fabs(map->max_x) + fabs(map->min_x);
+	y_diff = fabs(map->max_y) + fabs(map->min_y);
+	printf("x_diff: %f  \ny_diff: %f\n",x_diff, y_diff);
 	gap = 50;
 	while (gap > 1)
 	{
@@ -345,14 +349,21 @@ double	max_gap(t_map *map)
 		// {
 		// 	gap--;
 		// }
-
+		x_margin = (WIDTH - fabs(x_diff * gap)) / 2.0;
+		y_margin = (HEIGHT - fabs(y_diff * gap)) / 2.0;
 		
-		if (((WIDTH - fabs(x_diff * gap)) / 2.0  > fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 200) \
-			&& ((HEIGHT - fabs(y_diff * gap)) / 2.0 > fabs(map->max_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - 200))
+		// if (((WIDTH - fabs(x_diff * gap)) / 2.0  > fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - TEST) \
+		// 	&& ((HEIGHT - fabs(y_diff * gap)) / 2.0 > fabs(map->min_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - TEST))
 		// if (((200) / 1.0  > fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 200) \
 		// 	&& ((200) / 1.0 > fabs(map->max_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - 200))  
 		// if (((200) / 1.0  > fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - 200) \
 		// 	&& ((200) / 1.0 > fabs(map->max_y * gap)) && (fabs(map->min_y * gap) < HEIGHT - 200))  
+		// if ((x_margin  > fabs(map->min_x * gap)) && (fabs(map->max_x * gap) < WIDTH - x_margin) \
+		// 	&& (y_margin > fabs(map->min_y * gap)) && (fabs(map->max_y * gap) < HEIGHT - y_margin))
+		// if ((x_margin  > fabs(x_diff* gap)) && (fabs(x_diff * gap) < WIDTH - x_margin) \
+		// 	&& (y_margin > fabs(y_diff * gap)) && (fabs(y_diff * gap) < HEIGHT - y_margin))
+		if ((fabs(x_diff * gap) < WIDTH - x_margin - TEST) \
+			&& ((fabs(y_diff * gap) < HEIGHT - y_margin - TEST)))
 		{
 			printf("break gap:  %f\n", gap);
 			break;
@@ -365,10 +376,19 @@ double	max_gap(t_map *map)
 	if (gap <= 1)
 		gap = 1;
 
-	printf("1_ (WIDTH - (x_diff * gap)) / 2.0: %f \n fabs(map->min_x * gap): %f\n", (WIDTH - fabs(x_diff * gap)) / 2.0, fabs(map->min_x * gap));
-	printf("2_ WIDTH - 200: %d \n fabs(map->max_x * gap): %f\n", WIDTH - 200, fabs(map->max_x * gap));
-	printf("3_ (HEIGHT - (y_diff * gap)) / 2.0: %f \n fabs(map->max_y * gap): %f\n", (HEIGHT - fabs(y_diff * gap)) / 2.0, fabs(map->max_y * gap));
-	printf("4_ HEIGHT - 200: %d \n fabs(map->min_y * gap): %f\n", HEIGHT - 200, fabs(map->min_y * gap));
+	// printf("1_ (WIDTH - (x_diff * gap)) / 2.0: %f \n fabs(map->min_x * gap): %f\n", (WIDTH - fabs(x_diff * gap)) / 2.0, fabs(map->min_x * gap));
+	// printf("2_ WIDTH - TEST: %d \n fabs(map->max_x * gap): %f\n", WIDTH - TEST, fabs(map->max_x * gap));
+	// printf("3_ (HEIGHT - (y_diff * gap)) / 2.0: %f \n fabs(map->max_y * gap): %f\n", (HEIGHT - fabs(y_diff * gap)) / 2.0, fabs(map->max_y * gap));
+	// printf("4_ HEIGHT - TEST: %d \n fabs(map->min_y * gap): %f\n", HEIGHT - TEST, fabs(map->min_y * gap));
+	// printf("1_ x_margi: %f \n fabs(map->min_x * gap): %f\n", x_margin, fabs(map->min_x * gap));
+	// printf("2_ WIDTH - x_margin: %f \n fabs(map->max_x * gap): %f\n", WIDTH - x_margin, fabs(map->max_x * gap));
+	// printf("3_ y_margin > fabs(map->min_y * gap): %f \n fabs(map->max_y * gap): %f\n", y_margin, fabs(map->max_y * gap));
+	// printf("4_ HEIGHT - y_margin: %f \n fabs(map->min_y * gap): %f\n", HEIGHT - y_margin, fabs(map->min_y * gap));
+	printf("1_ x_margin: %f \n fabs(x_diff* gap): %f\n", x_margin, fabs(x_diff* gap));
+	printf("2_ WIDTH - x_margin: %f \n fabs(x_diff * gap): %f\n", WIDTH - x_margin, fabs(x_diff * gap));
+	printf("3_ y_margin: %f \n fabs(y_diff * gap): %f\n", y_margin, fabs(y_diff * gap));
+	printf("4_ HEIGHT - y_margin: %f \n fabs(y_diff * gap): %f\n", HEIGHT - y_margin, fabs(y_diff * gap));
+	printf("x_margin: %f   \ny_margin: %f", x_margin, y_margin);
 	
 	return (gap);
 }

@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/17 17:34:46 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/19 19:42:16 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define HEIGHT 1500
 // # define WIDTH 2000
 // # define HEIGHT 1500
-# define TEST 10
+# define TEST 400
 
 typedef struct s_coord
 {
@@ -130,6 +130,8 @@ void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p);
 void	pixel_input_color(t_image *image, int x, int y, int color);
 
 void	print_mlx(t_vars *vars, t_image *image);
-int		quit_window(int ket_code, t_vars *vars);
+// int		quit_window(int ket_code, t_vars *vars);
+int		key_hook(int keycode, t_vars *vars);
+int 	exit_hook();
 
 #endif

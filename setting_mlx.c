@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 06:58:13 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/17 17:27:14 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/19 19:42:26 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,38 @@ void	set_mlx(t_vars *vars, t_image *image)
 void	print_mlx(t_vars *vars, t_image *image)
 {
 	mlx_put_image_to_window(vars->mlx, vars->win, image->img, 0, 0);
-	mlx_hook(vars->win, 2, 1L << 0, quit_window, vars);
-	
-	// mlx_hook(vars->win, 2, 0, quit_window, vars);
+	// mlx_hook(vars->win, 2, 1L << 0, quit_window, vars);
 	// mlx_hook(vars->win, 17, 0, quit_window, vars);
+	
+	mlx_key_hook(vars->win, key_hook, &vars); 
+	mlx_hook(vars->win, 17, 0, exit_hook, 0);
+
 	mlx_loop(vars->mlx);
 }
 
-int	quit_window(int ket_code, t_vars *vars)
+// int	quit_window(int ket_code, t_vars *vars)
+// {
+// 	if (ket_code == 53)
+// 	{
+// 		mlx_destroy_window(vars->mlx, vars->win);
+// 		exit(0);
+// 	}
+// 	return (0);
+// }
+
+int	key_hook(int keycode, t_vars *vars)
 {
-	if (ket_code == 53)
+	if(keycode == 53)
 	{
 		mlx_destroy_window(vars->mlx, vars->win);
 		exit(0);
 	}
 	return (0);
+}
+
+int exit_hook()
+{
+	exit(0);
 }
 
 // void	draw_img(t_image *image, t_map *map)
