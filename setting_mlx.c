@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 06:58:13 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/19 19:42:26 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/20 18:44:48 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	key_hook(int keycode, t_vars *vars)
 {
 	if(keycode == 53)
 	{
-		mlx_destroy_window(vars->mlx, vars->win);
+		// mlx_destroy_window(vars->mlx, vars->win);
 		exit(0);
 	}
 	return (0);
