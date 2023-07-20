@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/19 20:27:40 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:11:36 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ void	parsing(char *file_name, t_map *map)
 		exit(1);
 	
 	set_map_size(fd, map, 0);
-
-	//파싱한 width, height 크기
-	printf("width: %d  height: %d\n",map->width, map->height);
-
 	close(fd);	
 	map_size_value = (map->height) * (map->width);
 	map->p_map = (t_coord *)malloc(sizeof(t_coord) * map_size_value);
@@ -34,59 +30,6 @@ void	parsing(char *file_name, t_map *map)
 	fd = open(file_name, O_RDONLY);
 	
 	set_map_coord(fd, map, 0, 0);
-
-	//printf("\n");
-
-	//z 파싱 결과
-	// for (int i = 0; i < map->height; i++)
-	// {
-	// 	for (int j = 0; j < map->width; j++)
-	// 	{
-	// 		t_coord p;
-	// 		p = map->p_map[i * map->width];
-	// 		// if(p.x)
-	// 		// 	printf("x= %0.1f y= %0.1f z= %0.1f", p.x, p.y, p.z);
-	// 		if(p.x)
-	// 			printf("z= %f", p.z);
-	// 	}
-	// 	printf("\n");
-	// }
-
-	// for (int i = 0; i < map->height; i++)
-	// {
-	// 	for (int j = 0; j < map->width; j++)
-	// 	{
-	// 		t_coord p;
-	// 		p = map->p_map[i * map->width];
-	// 		// if(p.x)
-	// 		// 	printf("x= %0.1f y= %0.1f z= %0.1f", p.x, p.y, p.z);
-	// 		if(p.x)
-	// 			printf("z= %d c= %d  ||", p.z, p.color);
-	// 	}
-	// 	printf("\n");
-	// }
-
-	// for (int i = 0; i < map->height; i++)
-	// {
-	// 	for (int j = 0; j < map->width; j++)
-	// 	{
-	// 		// map->p_map[i * map->width + j];
-	// 		printf("(%d,%d,%d)  ", map->p_map[i * map->width + j].x, map->p_map[i * map->width + j].y, map->p_map[i * map->width + j].z);
-	// 	}
-	// 	printf("\n");
-	// }
-	
-
-
-
-	
-	// int i = 0;
-	// while (i < map->width * map->height)
-	// {
-	// 	printf("(%f,%f,%f)  ",map->p_map[i].x, map->p_map[i].y, map->p_map[i].z);
-	// 	i++;
-	// }
-
 	close(fd);
 }
 
@@ -100,7 +43,6 @@ void	set_map_size(int fd, t_map *map, int i)
 	line = get_next_line(fd);
 	map->width = get_width(line);
 	map->height = 0;
-	// max = -2147483648;
 	while (line)
 	{
 		arr = ft_split(line, ' ');

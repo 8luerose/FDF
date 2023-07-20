@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:33:31 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/20 17:05:06 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:11:34 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ int	ft_atoi(const char *str)
 		length++;
 	}
 	result = result * sign;
-	if (*str != '\0' || length > 10
-		|| result > 2147483647 || result < -2147483648)
+	if (length > 10 || result > 2147483647 || result < -2147483648)
 		ft_perror("ERROR: map->z range error");
 	return ((int)result);
 }
