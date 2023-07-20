@@ -116,12 +116,10 @@ double	find_min_y(t_map *map);
 
 void	move_center(t_map *map);
 
-// void	image_size_up(t_vars *vars, t_map *map);
 void	image_size_up(t_map *map);
 double	max_gap(t_map *map);
 
 
-// void	draw_img(t_image *image, t_map *map);
 
 void	draw_col(t_image *img, t_map *map);
 void	draw_row(t_image *img, t_map *map);
@@ -130,7 +128,6 @@ void	DDA_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p);
 void	pixel_input_color(t_image *image, int x, int y, int color);
 
 void	print_mlx(t_vars *vars, t_image *image);
-// int		quit_window(int ket_code, t_vars *vars);
 int		key_hook(int keycode, t_vars *vars);
 int 	exit_hook();
 
