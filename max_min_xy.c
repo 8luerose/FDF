@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   max_min_xy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taehkwon <taehkwon@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:14:03 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/15 00:16:38 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/20 17:14:08 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	max_min_xy(t_map *map)
 	map->max_y = find_max_y(map);
 	map->min_x = find_min_x(map);
 	map->min_y = find_min_y(map);
-
-	printf("\nmax_min_xy: %f %f \n %f %f\n", map->max_x, map->max_y, map->min_x, map->min_y);
 }
 
 double	find_max_x(t_map *map)
