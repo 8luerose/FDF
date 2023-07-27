@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 06:58:13 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 19:44:27 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/27 20:39:54 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	print_mlx(t_vars *vars, t_image *image)
 	mlx_loop(vars->mlx);
 }
 
-int	key_hook(int keycode, t_vars *vars)
+int	key_hook(int keycode)
 {
 	if (keycode == 53)
 	{

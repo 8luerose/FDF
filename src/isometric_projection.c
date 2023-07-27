@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 05:54:30 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/20 17:13:58 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/27 20:31:52 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	rotate_x(double *x, double *y, double *z)
 	double	previous_z;
 	double	theta;
 
+	(void)*x;
 	previous_y = *y;
 	previous_z = *z;
 	theta = M_PI / 3;
@@ -46,6 +47,7 @@ void	rotate_y(double *x, double *y, double *z)
 	double	previous_z;
 	double	theta;
 
+	(void)*y;
 	previous_x = *x;
 	previous_z = *z;
 	theta = M_PI / 6;
@@ -59,6 +61,7 @@ void	rotate_z(double *x, double *y, double *z)
 	double	previous_y;
 	double	theta;
 
+	(void)*z;
 	previous_x = *x;
 	previous_y = *y;
 	theta = M_PI / 4 * -1;

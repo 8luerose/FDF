@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 20:26:45 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/27 20:58:45 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int		is_valid_num(char *arr);
 int		is_color(char *arr);
 void	parsing(char *file_name, t_map *map);
 void	set_map_size(int fd, t_map *map, int i);
-void	set_map_coord(int fd, t_map *map, int x, int y);
+void	set_map_coord(int fd, t_map *map, int y);
 void	get_map_color(char *arr, t_coord *coord);
 int		input_color(char *arr, char *hex, int len);
 int		hex_indexing(char *hex, char x);
@@ -102,11 +102,11 @@ void	image_size_up(t_map *map);
 double	max_gap(t_map *map);
 void	draw_col(t_image *img, t_map *map);
 void	draw_row(t_image *img, t_map *map);
-void	dda(t_image *img, t_map *map, t_coord first, t_coord second);
-void	dda_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p);
+void	dda(t_image *img, t_coord first, t_coord second);
+void	dda_inc(t_image *image, t_dda *dda, t_coord *p);
 void	pixel_color(t_image *image, int x, int y, int color);
 void	print_mlx(t_vars *vars, t_image *image);
-int		key_hook(int keycode, t_vars *vars);
+int		key_hook(int keycode);
 int		exit_hook(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:26:11 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 19:53:41 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/27 20:29:12 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	draw_row(t_image *image, t_map *map)
 		{
 			first_coord = map->p_map[i * map->width + j];
 			second_coord = map->p_map[i * map->width + (j + 1)];
-			dda(image, map, first_coord, second_coord);
+			dda(image, first_coord, second_coord);
 			j++;
 		}
 		i++;
@@ -49,14 +49,14 @@ void	draw_col(t_image *image, t_map *map)
 		{
 			first_coord = map->p_map[j * map->width + i];
 			second_coord = map->p_map[(j + 1) * map->width + i];
-			dda(image, map, first_coord, second_coord);
+			dda(image, first_coord, second_coord);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	dda(t_image *image, t_map *map, t_coord first, t_coord second)
+void	dda(t_image *image, t_coord first, t_coord second)
 {
 	t_dda	dda_utils;
 	t_dda	*p_dda;
@@ -72,10 +72,10 @@ void	dda(t_image *image, t_map *map, t_coord first, t_coord second)
 	dda_utils.y_inc = dda_utils.dy / dda_utils.step;
 	p = &first;
 	p_dda = &dda_utils;
-	dda_inc(image, map, p_dda, p);
+	dda_inc(image, p_dda, p);
 }
 
-void	dda_inc(t_image *image, t_map *map, t_dda *dda, t_coord *p)
+void	dda_inc(t_image *image, t_dda *dda, t_coord *p)
 {
 	double	x_diff;
 	double	y_diff;
