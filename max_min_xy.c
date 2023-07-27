@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 01:14:03 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/20 17:14:08 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:51:08 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ double	find_max_x(t_map *map)
 
 	max = -999999999;
 	i = 0;
-	while(i < map->width * map->height)
+	while (i < map->width * map->height)
 	{
 		if (map->p_map[i].x > max)
 		{
@@ -45,7 +45,7 @@ double	find_max_y(t_map *map)
 
 	max = -999999999;
 	i = 0;
-	while(i < map->width * map->height)
+	while (i < map->width * map->height)
 	{
 		if (map->p_map[i].y > max)
 		{
@@ -63,7 +63,7 @@ double	find_min_x(t_map *map)
 
 	min = 999999999;
 	i = 0;
-	while(i < map->width * map->height)
+	while (i < map->width * map->height)
 	{
 		if (map->p_map[i].x < min)
 		{
@@ -81,7 +81,7 @@ double	find_min_y(t_map *map)
 
 	min = 999999999;
 	i = 0;
-	while(i < map->width * map->height)
+	while (i < map->width * map->height)
 	{
 		if (map->p_map[i].y < min)
 		{

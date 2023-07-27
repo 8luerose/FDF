@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 19:06:31 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:53:11 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	parsing(char *file_name, t_map *map)
 	if (fd < 0)
 		exit(1);
 	set_map_size(fd, map, 0);
-	close(fd);	
+	close(fd);
 	map_size_value = (map->height) * (map->width);
 	map->p_map = (t_coord *)malloc(sizeof(t_coord) * map_size_value);
 	if (!(map->p_map))
@@ -46,7 +46,7 @@ void	set_map_size(int fd, t_map *map, int i)
 		free(line);
 		if (arr == NULL || *arr[0] == '\0')
 			ft_perror("ERROR: Invalid map");
-		check_width = invalid_color_check(arr, i); //i = 0;
+		check_width = invalid_color_check(arr, i);
 		if (!check_width)
 			ft_perror("ERROR: Invalid map color");
 		free_for_split(arr);
@@ -68,13 +68,13 @@ void	set_map_coord(int fd, t_map *map, int x, int y)
 	line = get_next_line(fd);
 	while (line)
 	{
-		coord.y = y - map->height/2;
+		coord.y = y - map->height / 2;
 		arr = ft_split(line, ' ');
 		i = 0;
 		while (arr[i])
 		{		
 			get_map_color(arr[i], &coord);
-			coord.x = i - map->width/2;
+			coord.x = i - map->width / 2;
 			map->p_map[y * map->width + i] = coord;
 			i++;
 		}
@@ -91,7 +91,7 @@ void	get_map_color(char *arr, t_coord *coord)
 	char	**color_split;
 	int		check_width;
 	int		color_value;
-	
+
 	color_split = ft_split(arr, ',');
 	if (!color_split || !is_valid_num(color_split[0]))
 	{

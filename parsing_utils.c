@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:54:08 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 19:10:56 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:52:23 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	get_width(char *line)
 	return (len_width);
 }
 
-int	invalid_color_check(char **arr, int	i)
+int	invalid_color_check(char **arr, int i)
 {
 	char	**color_split;
 	int		cnt;
@@ -90,7 +90,7 @@ int	is_color(char *arr)
 	color_split_cnt = 0;
 	while (color_split[color_split_cnt])
 		color_split_cnt++;
-	if (color_split_cnt > 2 || color_split_cnt == 0) 
+	if (color_split_cnt > 2 || color_split_cnt == 0)
 	{
 		free_for_split(color_split);
 		return (0);
