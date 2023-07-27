@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:54:08 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/19 20:14:12 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:10:56 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,46 +27,13 @@ int	get_width(char *line)
 	return (len_width);
 }
 
-// int	get_width(char *line)
-// {
-// 	int		len_width;
-// 	char	**arr;
-
-// 	if (!line || *line == '\n')
-// 		ft_perror("ERROR: Invalid map volume");
-// 	len_width = 0;
-// 	arr = ft_split(line, ' ');
-// 	while (arr[len_width] && *arr[len_width] != '\n')
-// 		len_width++;
-// 	free_for_split(arr);
-// 	return (len_width);
-// } 
-// <Ver. 7/19>
-
-// int	get_width(char *line)
-// {
-// 	int		len_width;
-// 	char	**arr;
-
-// 	len_width = 0;
-// 	arr = ft_split(line, ' ');
-// 	//printf("arr: %s\n", arr[i]);
-// 	// while (arr[len_width] && arr[len_width + 1] != NULL)
-// 	// 	len_width++;
-// 	while (arr[len_width] && *arr[len_width] != '\n')
-// 		len_width++;
-// 	free_for_split(arr);
-// 	return (len_width);
-// }
-
 int	invalid_color_check(char **arr, int	i)
 {
 	char	**color_split;
 	int		cnt;
 
 	while (arr[i] && *arr[i] != '\n' && *arr[i] != '\0')
-	{	
-		// == is_color
+	{
 		color_split = ft_split(arr[i], ',');
 		if (!color_split)
 		{
@@ -87,58 +54,21 @@ int	invalid_color_check(char **arr, int	i)
 	return (i);
 }
 
-// int	invalid_color_check(char **arr, int	i)
-// {
-// 	char	**color_split;
-// 	int		cnt;
-
-// 	while (arr[i] && *arr[i] != '\n')
-// 	{	
-// 		// == is_color
-// 		color_split = ft_split(arr[i], ',');
-// 		if (!color_split)
-// 		{
-// 			free_for_split(color_split);
-// 			return (0);
-// 		}
-// 		cnt = 0;
-// 		while (color_split[cnt] && *color_split[cnt] != '\n')
-// 			cnt++;
-// 		if (cnt > 2 || cnt == 0)
-// 		{
-// 			free_for_split(color_split);
-// 			return (0);
-// 		}
-// 		free_for_split(color_split);
-// 		i++;
-// 	}
-// 	return (i);
-// }
-// <Ver. 7/19>
-
 int	is_valid_num(char *arr)
 {
-	//printf("is_valid_num %s\n", arr);
 	int	i;
 
 	i = 0;
 	if (arr[i] == '-' || arr[i] == '+')
 		i++;
-	// if (arr == NULL || arr[i] == '\0' || arr[i] == '\n')
-	// {
-	// 	printf("arr[i]: %c\n", arr[i]);
-	// 	return (0);
-	// }
 	if (arr[i] == '\0')
 	{
-		printf("arr[i]: %c\n", arr[i]);
 		return (0);
 	}
 	while (arr[i] != '\0' && arr[i] != '\n')
 	{
 		if (!(arr[i] >= '0' && arr[i] <= '9'))
 		{
-			// printf("if: %c\n", arr[i]);
 			return (0);
 		}
 		i++;

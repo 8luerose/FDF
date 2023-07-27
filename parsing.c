@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/20 17:13:28 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:06:31 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	parsing(char *file_name, t_map *map)
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
 		exit(1);
-	
 	set_map_size(fd, map, 0);
 	close(fd);	
 	map_size_value = (map->height) * (map->width);
@@ -28,7 +27,6 @@ void	parsing(char *file_name, t_map *map)
 	if (!(map->p_map))
 		ft_perror("ERROR: Invalid map malloc");
 	fd = open(file_name, O_RDONLY);
-	
 	set_map_coord(fd, map, 0, 0);
 	close(fd);
 }
@@ -38,7 +36,6 @@ void	set_map_size(int fd, t_map *map, int i)
 	char	*line;
 	char	**arr;
 	int		check_width;
-	int		max;
 
 	line = get_next_line(fd);
 	map->width = get_width(line);

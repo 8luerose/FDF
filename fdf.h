@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 16:38:32 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:02:23 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 
 # define WIDTH 2560
 # define HEIGHT 1440
-// # define WIDTH 2000
-// # define HEIGHT 1500
 # define TEST 400
 
 typedef struct s_coord
