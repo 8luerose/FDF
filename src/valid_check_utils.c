@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 02:33:22 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 19:53:16 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/28 15:49:41 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,13 @@ int	is_valid_file(char *file_name)
 	if (len < 2)
 		return (0);
 	result = 0;
-	if (ft_strncmp(arr[len - 1], "fdf", 4) == 0)
-		result = 1;
+	if (ft_strncmp(arr[len - 1], "fdf", 4) != 0)
+	{
+		free_for_split(arr);
+		return (0);
+	}
 	free_for_split(arr);
-	return (result);
+	return (1);
 }
 
 void	ft_perror(char *s)

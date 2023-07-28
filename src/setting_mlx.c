@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 06:58:13 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 20:39:54 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/28 15:58:26 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,23 @@ void	set_mlx(t_vars *vars, t_image *image)
 void	print_mlx(t_vars *vars, t_image *image)
 {
 	mlx_put_image_to_window(vars->mlx, vars->win, image->img, 0, 0);
-	mlx_key_hook(vars->win, key_hook, &vars);
-	mlx_hook(vars->win, 17, 0, exit_hook, 0);
+	mlx_key_hook(vars->win, key_hook, vars);
+	mlx_hook(vars->win, 17, 0, exit_hook, vars);
 	mlx_loop(vars->mlx);
 }
 
-int	key_hook(int keycode)
+int	key_hook(int keycode, t_vars *vars)
 {
 	if (keycode == 53)
 	{
-		exit(0);
+		exit_hook(vars);
 	}
 	return (0);
 }
 
-int	exit_hook(void)
+int	exit_hook(t_vars *vars)
 {
+	mlx_destroy_window(vars->mlx, vars->win);
 	exit(0);
+	return (0);
 }

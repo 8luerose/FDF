@@ -6,14 +6,21 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 19:40:45 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/28 15:17:33 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+void	memory_leaks(void)
+{
+	system("leaks fdf");
+}
+
 int	main(int ac, char **av)
 {
+	atexit(memory_leaks);
+
 	t_map	map;
 	t_vars	vars;
 	t_image	image;

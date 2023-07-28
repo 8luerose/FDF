@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 20:58:45 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/28 15:54:06 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	dda(t_image *img, t_coord first, t_coord second);
 void	dda_inc(t_image *image, t_dda *dda, t_coord *p);
 void	pixel_color(t_image *image, int x, int y, int color);
 void	print_mlx(t_vars *vars, t_image *image);
-int		key_hook(int keycode);
-int		exit_hook(void);
+int		key_hook(int keycode, t_vars *vars);
+int		exit_hook(t_vars *vars);
 
 #endif

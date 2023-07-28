@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 18:37:34 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/27 20:39:23 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/28 16:03:57 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	parsing(char *file_name, t_map *map)
 
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
-		exit(1);
+		ft_perror("ERROR: Can't open");
 	set_map_size(fd, map, 0);
 	close(fd);
 	map_size_value = (map->height) * (map->width);
@@ -109,6 +109,7 @@ void	get_map_color(char *arr, t_coord *coord)
 	}
 	else
 		coord->color = input_color("0x00FFFFFF", "0123456789abcdef", 0);
+	free_for_split(color_split);
 }
 
 int	input_color(char *arr, char *hex, int len)
