@@ -1,43 +1,47 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I includes -I get_next_line -I mlx
-MLX = -lmlx -framework OpenGL -framework AppKit
+MLX = -Lmlx -lmlx -framework OpenGL -framework Appkit
+MLX_DIR = ./mlx
+
 RM = rm -f
 NAME = fdf
 
-SRCS =  src/draw.c						\
-		src/ft_atoi.c 					\
-		src/ft_memcpy.c 				\
-		src/ft_split.c 					\
-		src/ft_strchr.c 				\
-		src/ft_strdup.c 				\
-		src/ft_strlen.c 				\
-		src/ft_strncmp.c				\
-		src/ft_substr.c 				\
-		src/ft_tolower.c				\
-		src/isometric_projection.c		\
-		src/main.c 						\
-		src/max_min_xy.c 				\
-		src/move_center.c 				\
-		src/parsing.c 					\
-		src/parsing_utils.c 			\
-		src/scaling.c 					\
-		src/setting_mlx.c 				\
-		src/valid_check_utils.c			\
-		get_next_line/get_next_line.c	\
-		get_next_line/get_next_line_utils.c
+SRCS =  draw.c                      \
+        ft_atoi.c                   \
+        ft_memcpy.c                 \
+        ft_split.c                  \
+        ft_strchr.c                 \
+        ft_strdup.c                 \
+        ft_strlen.c                 \
+        ft_strncmp.c                \
+        ft_substr.c                 \
+        ft_tolower.c                \
+        isometric_projection.c      \
+        main.c                      \
+        max_min_xy.c                \
+        move_center.c               \
+        parsing.c                   \
+        parsing_utils.c             \
+        scaling.c                   \
+        setting_mlx.c               \
+        valid_check_utils.c         \
+        get_next_line/get_next_line.c    \
+        get_next_line/get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
+	$(MAKE) -C $(MLX_DIR)
 	$(CC) $(CFLAGS) $(OBJS) $(MLX) -o $(NAME) 
 
 clean:
+	$(MAKE) -C $(MLX_DIR) clean
 	$(RM) $(OBJS)
 
 fclean: clean
