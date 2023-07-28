@@ -6,7 +6,7 @@
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:05:46 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/07/28 20:35:16 by taehkwon         ###   ########.fr       */
+/*   Updated: 2023/07/28 20:59:34 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
-# include "../mlx/mlx.h"
-# include "../get_next_line/get_next_line.h"
+// # include "../mlx/mlx.h"
+// # include "../get_next_line/get_next_line.h"
+# include "mlx.h"
+# include "get_next_line.h"
 # define WIDTH 2560
 # define HEIGHT 1440
 

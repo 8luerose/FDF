@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I includes -I get_next_line -I mlx
+INCLUDES = -Iincludes -Iget_next_line -Imlx
 MLX = -Lmlx -lmlx -framework OpenGL -framework Appkit
 MLX_DIR = ./mlx
 
