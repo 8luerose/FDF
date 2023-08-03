@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taehkwon <taehkwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/01 01:36:10 by taehkwon          #+#    #+#             */
-/*   Updated: 2023/08/03 18:52:56 by taehkwon         ###   ########.fr       */
+/*   Created: 2023/08/03 18:42:50 by taehkwon          #+#    #+#             */
+/*   Updated: 2023/08/03 18:43:42 by taehkwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int ac, char **av)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_map	map;
-	t_vars	vars;
-	t_image	image;
+	size_t			i;
+	unsigned char	case1;
+	unsigned char	case2;
 
-	if (ac == 2)
+	i = 0;
+	while ((s1[i] != '\0' || s2[i] != '\0'))
 	{
-		if (!is_valid_file(av[1]))
-			ft_perror("ERROR: Invalid file name");
-		parsing(av[1], &map);
-		isometric(&map);
-		max_min_xy(&map);
-		image_size_up(&map);
-		set_mlx(&vars, &image);
-		draw_col(&image, &map);
-		draw_row(&image, &map);
-		print_mlx(&vars, &image);
+		case1 = (unsigned char)s1[i];
+		case2 = (unsigned char)s2[i];
+		if (case1 != case2)
+			return (case1 - case2);
+		i++;
 	}
 	return (0);
 }
