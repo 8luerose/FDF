@@ -12,7 +12,7 @@ FDF란 2차원 평면상의 도형을 3차원처럼 보여주는 투영법을 �
 ![Untitled (2)](https://github.com/8luerose/FDF/assets/105616046/321caba3-7839-49d4-98d7-c43673d804d5)
 ![Untitled (3)](https://github.com/8luerose/FDF/assets/105616046/333e244b-b247-4ede-b7ab-44f52c6c78fa)
 
-공식
+공식<br>
 <img width="798" alt="스크린샷 2023-09-25 오전 2 30 34" src="https://github.com/8luerose/FDF/assets/105616046/cc719f84-3bf5-4c8b-9739-7bddf5c7b2e3">
 <img width="544" alt="스크린샷 2023-09-25 오전 2 14 11" src="https://github.com/8luerose/FDF/assets/105616046/63fff799-d046-4423-834b-a4c0cc4c3911">
 ![image](https://github.com/8luerose/FDF/assets/105616046/b7995b94-91fd-4a2e-af2e-486049b25c22)
@@ -25,9 +25,9 @@ DDA 알고리즘은 양 끝점이 주어졌을 때 화면 위 직선을 그릴 �
 좌표를 구하고 해당 좌표의 픽셀을 채워줍니다. X가 1만큼 증가할 때 Y는 그만큼 증가하지 못했다면 X축쪽으로 기운 것이고, Y가 1만큼 증가할 때 X가 그만큼 증가하지 못했다면 Y축 쪽으로 감소한 것입니다.
 
 > **( 참고사항 )** 브레젠험 알고리즘(Bresenham’s line algorithm)도 직선을 연결할 수 있습니다. 다만, DDA는 double 자료형이 사용되며, 브레젠험 알고리즘은 int 자료형이 사용된다는 차이가 있습니다. 부동소수점까지 처리해왔기 때문에 double형이 사용되는 DDA를 사용하였습니다.
+
+
 <br><br>
-
-
 ## 전체적인 과정
 1. 파일 이름 유효성 체크: .fdf  4개가 맞으면 맞다
 2. 파싱: 크기 구하기 → 좌표 부여(컬러 포함)
