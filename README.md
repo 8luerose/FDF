@@ -1,7 +1,7 @@
 # FDF란?
 FDF란 2차원 평면상의 도형을 3차원처럼 보여주는 투영법을 적용하여 보여주는 기법입니다.
 이때, 사용한 투영법은 isometric projection이며 오일러 각을 사용하였습니다.
-
+<br><br>
 
 
 ## Isometric projection란?
@@ -16,7 +16,7 @@ FDF란 2차원 평면상의 도형을 3차원처럼 보여주는 투영법을 �
 <img width="798" alt="스크린샷 2023-09-25 오전 2 30 34" src="https://github.com/8luerose/FDF/assets/105616046/cc719f84-3bf5-4c8b-9739-7bddf5c7b2e3">
 <img width="544" alt="스크린샷 2023-09-25 오전 2 14 11" src="https://github.com/8luerose/FDF/assets/105616046/63fff799-d046-4423-834b-a4c0cc4c3911">
 ![image](https://github.com/8luerose/FDF/assets/105616046/b7995b94-91fd-4a2e-af2e-486049b25c22)
-
+<br><br>
 
 
 ## Digital Differential Analyzer - DDA 알고리즘
@@ -25,7 +25,7 @@ DDA 알고리즘은 양 끝점이 주어졌을 때 화면 위 직선을 그릴 �
 좌표를 구하고 해당 좌표의 픽셀을 채워줍니다. X가 1만큼 증가할 때 Y는 그만큼 증가하지 못했다면 X축쪽으로 기운 것이고, Y가 1만큼 증가할 때 X가 그만큼 증가하지 못했다면 Y축 쪽으로 감소한 것입니다.
 
 > **( 참고사항 )** 브레젠험 알고리즘(Bresenham’s line algorithm)도 직선을 연결할 수 있습니다. 다만, DDA는 double 자료형이 사용되며, 브레젠험 알고리즘은 int 자료형이 사용된다는 차이가 있습니다. 부동소수점까지 처리해왔기 때문에 double형이 사용되는 DDA를 사용하였습니다.
-
+<br><br>
 
 
 ## 전체적인 과정
@@ -38,14 +38,14 @@ DDA 알고리즘은 양 끝점이 주어졌을 때 화면 위 직선을 그릴 �
 7. 가로선(draw_col) 그려주기: dda 알고리즘으로 선분을 이어준다(gap적용)
 8. 세로선(draw_row) 그려주기: dda 알고리즘으로 선분을 이어준다(gap적용)
 9. 이미지 출력
-
+<br>
 
 ### 매우 잘된 예시
 ![captura](https://github.com/8luerose/FDF/assets/105616046/47d829fe-748f-432b-8597-74618ce543de)
 -> [https://github.com/ailopez-o/42Barcelona-FdF](https://github.com/ailopez-o/42Barcelona-FdF.git)
 ![zoom_alt](https://github.com/8luerose/FDF/assets/105616046/51e89e7c-3832-4e44-b2a2-4cfc8145ae7e)
 -> [https://github.com/bil0u/FdF.git](https://github.com/bil0u/FdF.git)
-
+<br><br>
 
 ## 주의할 점
 컴파일에 사용되는 mlx라이브러리는 버전이 다양합니다. 해당 파일에서는 x86 아키텍처에서가 사용되었으므로, 개인 맥북과 같은 ARM 아키텍쳐에서는 컴파일이 불가능합니다.
